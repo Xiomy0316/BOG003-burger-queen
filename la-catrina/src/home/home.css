@@ -1,0 +1,38 @@
+.header-home{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #04BFAD;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.logo-home{
+    width: 162px;
+    height: 162px;
+    transform: rotate(30deg);
+}
+.sect-logo {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 40%;
+    max-width: 400px;
+    color: #151616;
+    font-family: 'Lobster Two', cursive;
+    line-height: 130%;
+    font-size: 80px;
+    text-align: right;
+}
+.sect-nav{
+    display: flex;
+    width: 60%;
+    font-family: 'Comfortaa', cursive;
+    padding-bottom: 70px;
+    justify-content: space-between;
+}
+.btn-nav {
+    font-size: 22px;
+    text-align: center;
+}
+.btn-nav img {
+    width: 110px;
+}
