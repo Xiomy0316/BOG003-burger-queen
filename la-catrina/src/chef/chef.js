@@ -1,5 +1,5 @@
 import React from 'react';
-import './chef.css';
+import './chef.scss';
 
 const Chef = () => (
   <div className="App">

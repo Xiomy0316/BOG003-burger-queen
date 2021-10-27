@@ -1,4 +1,4 @@
-import './order.css';
+import './order.scss';
 
 const Order = () => (
   <div className="App">

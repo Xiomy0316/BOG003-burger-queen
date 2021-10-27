@@ -6,16 +6,20 @@ import {
 } from "react-router-dom";
 
 import Home from './home/home.jsx'
-import Menu from './menu/menu.js'
+import MenuLunch from './menu/menuLunch.jsx'
 import Order from './order/order.js'
 import Chef from './chef/chef.js'
+import MenuBreakfast from "./menu/menuBreakfast.jsx";
 
 const App = () => (
     <Router>
       <div>
         <Switch>
           <Route path="/menu">
-            <Menu />
+            <MenuLunch />
+          </Route>
+          <Route path="/break-menu">
+            <MenuBreakfast />
           </Route>
           <Route path="/order">
             <Order />
