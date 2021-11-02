@@ -1,25 +1,42 @@
-import { Fragment, useEffect, useState } from 'react';
 
+const ProductCategory = ({ data }) => {
 
-const ProductCategory = ({data}) => {
-    
     console.log('products', data)
-    return (<div className='products'>
-     <div className='food-break'>
-         <ul>
-         {data.map((item) => (
-             <div key= {item.id}>
-             <h3>{item.category}</h3>
-             <img src={item.img} alt=''/>
-             </div>
-         ))
-     }
-     </ul>
-     </div>
-     <div className='drinks-break'>
-         <h3>Bebidas</h3>
-     </div>
- </div>)
- }
+    return (
+        <div className='products'>
+            <h3>Comidas</h3>
+            <section className='food-break'>
+                {data.filter(item => item.category.includes('Comidas')).map(filterCategory => (
+                    <div key={filterCategory.id}>
+                        <img src={filterCategory.img} alt='' />
+                        <p>{filterCategory.name}</p>
+                        <p>{filterCategory.price}</p>
+                    </div>
+                ))
+                }
+            </section>
+            <h3>Bebidas</h3>
+            <section className='drinks-break'>
+                {data.filter(item => item.category.includes('Bebidas')).map(filterCategory => (
+                    <div key={filterCategory.id}>
+                        <img src={filterCategory.img} alt='' />
+                        <p>{filterCategory.name}</p>
+                        <p>{filterCategory.price}</p>
+                    </div>
+                ))
+                }
+            </section>
+            <section className='food-accompaniment'>
+                {data.filter(item => item.category.includes('Acompañamientos')).map(filterCategory => (
+                    <div key={filterCategory.id}>
+                        <img src={filterCategory.img} alt='' />
+                        <p>{filterCategory.name}</p>
+                        <p>{filterCategory.price}</p>
+                    </div>
+                ))
+                }
+            </section>
+        </div >)
+}
 
- export default ProductCategory;
+export default ProductCategory;
