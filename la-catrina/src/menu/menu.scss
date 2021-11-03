@@ -3,7 +3,6 @@ $font: 'Comfortaa', cursive;
 $blueColor: #04BFAD;
 $blackColor: #151616;
 
-
 .sect-menu {
     min-height: 100vh;
     background-color: $blackColor;
@@ -96,6 +95,33 @@ $blackColor: #151616;
 }
 .products {
     margin-top:20px;
+    /* display: flex;
+    flex-direction: column;
+    height: 80vh;
+    justify-content: space-evenly; */
+    h3 {
+        margin-left: 15px;
+   }
+    img {
+        width: 110px;
+    }
+    div {
+        display: flex;
+        flex-direction: column; 
+        justify-content: flex-end;
+    }
+}
+.food{
+    display: flex;
+    margin: 15px; 
+}
+.drinks{
+    display: flex; 
+    margin: 15px; 
+}
+.food-accompaniment{
+    display: flex;
+    margin: 15px;  
 }
 .go-order {
     width: 100%;
