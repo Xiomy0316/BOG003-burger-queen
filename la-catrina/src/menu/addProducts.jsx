@@ -1,15 +1,13 @@
 import { useState } from "react";
 
-const AddProducts = () => {
-
+const AddProducts = ({dataProduct}) => {
+    //console.log(dataProduct)
     const [add, setAdd] = useState([]);
-
+    console.log(add)
     return (
-        // Cuando damos click dos veces al mismo nos sale error
-        // Como es más recomendable -Poner la función afuera o declarla adentro como estamos haciendo
         <button onClick={() => {
-        setAdd(add.push('azucar'));
-        console.log(add)
+        setAdd([...add, dataProduct]);
+        
         }} className=''>
             Agregar
         </button>
