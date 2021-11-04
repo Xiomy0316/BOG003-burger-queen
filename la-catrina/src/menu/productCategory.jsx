@@ -10,7 +10,7 @@ const ProductCategory = ({ data }) => {
                         <img src={filterCategory.img} alt='' />
                         <p>{filterCategory.name}</p>
                         <p>{filterCategory.price}</p>
-                        <AddProducts/>
+                        {filterCategory.type.includes('breakfast') ?<AddProducts dataProduct={filterCategory}/> : ''}
                     </div>
                 ))
                 }
@@ -22,7 +22,7 @@ const ProductCategory = ({ data }) => {
                         <img src={filterCategory.img} alt='' />
                         <p>{filterCategory.name}</p>
                         <p>{filterCategory.price}</p>
-                        <AddProducts/>
+                        <AddProducts dataProduct={filterCategory}/>
                     </div>
                 ))
                 }
@@ -35,7 +35,7 @@ const ProductCategory = ({ data }) => {
                         <img src={filterCategory.img} alt='' />
                         <p>{filterCategory.name}</p>
                         <p>{filterCategory.price}</p>
-                        <AddProducts/>
+                        <AddProducts dataProduct={filterCategory}/>
                     </div>
                 ))
                 }

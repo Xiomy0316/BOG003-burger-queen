@@ -14,8 +14,7 @@ const MenuBreakfast = () => {
             .get('data.json')
             .then(res => res.data)
             .then(res => {
-                console.log('res de axios', res.products)
-                setProducts(res.products)
+                setProducts(res.breakfast)
             })
     }, [])
     return (
