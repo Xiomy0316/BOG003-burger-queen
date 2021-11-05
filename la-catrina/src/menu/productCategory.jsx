@@ -1,16 +1,17 @@
 import AddProducts from './addProducts';
-
+import AddToCart from './addToCart';
 const ProductCategory = ({ data }) => {
+
     return (
         <div className='products'>
             <h3>Comidas</h3>
             <section className='food'>
-                         {data.filter(item => item.category.includes('Comidas')).map(filterCategory => (
+                {data.filter(item => item.category.includes('Comidas')).map(filterCategory => (
                     <div key={filterCategory.id}>
                         <img src={filterCategory.img} alt='' />
                         <p>{filterCategory.name}</p>
                         <p>{filterCategory.price}</p>
-                        {filterCategory.type.includes('breakfast') ?<AddProducts dataProduct={filterCategory}/> : ''}
+                        {filterCategory.type.includes('breakfast') ? <AddProducts dataProduct={filterCategory} /> : ''}
                     </div>
                 ))
                 }
@@ -22,7 +23,7 @@ const ProductCategory = ({ data }) => {
                         <img src={filterCategory.img} alt='' />
                         <p>{filterCategory.name}</p>
                         <p>{filterCategory.price}</p>
-                        <AddProducts dataProduct={filterCategory}/>
+                        <AddProducts dataProduct={filterCategory} />
                     </div>
                 ))
                 }
@@ -35,11 +36,14 @@ const ProductCategory = ({ data }) => {
                         <img src={filterCategory.img} alt='' />
                         <p>{filterCategory.name}</p>
                         <p>{filterCategory.price}</p>
-                        <AddProducts dataProduct={filterCategory}/>
+                        <AddProducts dataProduct={filterCategory} />
                     </div>
                 ))
                 }
             </section>
+            <div>
+            <AddToCart/>
+            </div>
         </div >)
 }
 

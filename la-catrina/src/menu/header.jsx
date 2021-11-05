@@ -13,11 +13,11 @@ const Header = () => {
                 <input type='text' placeholder='Nombre' className='input-name'></input>
                 <select name='' className='num-table'>
                     <option disabled selected>Mesa</option>
-                    <option value=''>Mesa 1</option>
-                    <option value=''>Mesa 2</option>
-                    <option value=''>Mesa 3</option>
-                    <option value=''>Mesa 4</option>
-                    <option value=''>Mesa 5</option>
+                    <option value='Mesa1'>Mesa 1</option>
+                    <option value='Mesa2'>Mesa 2</option>
+                    <option value='Mesa3'>Mesa 3</option>
+                    <option value='Mesa4'>Mesa 4</option>
+                    <option value='Mesa5'>Mesa 5</option>
                 </select>
             </div>
             <div className='sect-buttons'>
