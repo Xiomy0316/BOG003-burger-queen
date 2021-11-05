@@ -1,84 +1,106 @@
 { 
-    "products": [
+    "breakfast": [
         {
         "id": "01",
+        "type": "breakfast",
         "category": "Comidas",
         "name": "Huevos rancheros",
         "price": "$10.000",
-        "img": "/image/huevos-ranch.png"
+        "img": "/image/huevos-ranch.png",
+        "amount": "1"
     },
     {
         "id": "02",
+        "type": "breakfast",
         "category": "Bebidas",
         "name": "Café americano",
         "price": "$5.000",
-        "img": "/image/cafe-americano.png"
+        "img": "/image/cafe-americano.png",
+        "amount": "1"
     },
     {
         "id": "03",
+        "type": "breakfast",
         "category": "Bebidas",
         "name": "Café con leche",
         "price": "$7.000",
-        "img": "/image/cafe-leche.png"
+        "img": "/image/cafe-leche.png",
+        "amount": "1"
     },
     {
         "id": "04",
+        "type": "breakfast",
         "category": "Bebidas",
         "name": "Jugo natural",
         "price": "$3.000",
-        "img": "/image/jugo.png"
+        "img": "/image/jugo.png",
+        "amount": "1"
     }
 ],
 
 "lunch": [
     {
     "id": "05",
+    "type": "lunch",
     "category": "Comidas",
     "name": "Burrito sencillo",
     "price": "$10.000",
-    "img": "/image/burrito-sencillo.png"
+    "img": "/image/burrito-sencillo.png",
+    "amount": "1"
 },
 {
     "id": "06",
+    "type": "lunch",
     "category": "Comidas",
     "name": "Burrito especial",
     "price": "$12.000",
-    "img": "/image/burrito-especial.png"
+    "img": "/image/burrito-especial.png",
+    "amount": "1"
 },
 {
     "id": "07",
+    "type": "lunch",
     "category": "Bebidas",
     "name": "Gaseosa 125ml",
     "price": "$5.000",
-    "img": "/image/gaseosa.png"
+    "img": "/image/gaseosa.png",
+    "amount": "1"
 },
 {
     "id": "08",
+    "type": "lunch",
     "category": "Bebidas",
     "name": "Jugo natural",
     "price": "$3.000",
-    "img": "/image/jugo.png"
+    "img": "/image/jugo.png",
+    "amount": "1"
 },
 {
     "id": "09",
+    "type": "lunch",
     "category": "Bebidas",
     "name": "Agua 125ml",
     "price": "$3.000",
-    "img": "/image/agua.png"
+    "img": "/image/agua.png",
+    "amount": "1"
 },
 {
     "id": "10",
+    "type": "lunch",
     "category": "Acompañamientos",
     "name": "Papas fritas",
     "price": "$5.000",
-    "img": "/image/papas.png"
+    "img": "/image/papas.png",
+    "amount": "1"
 },
 {
     "id": "11",
+    "type": "lunch",
     "category": "Acompañamientos",
     "name": "Nachos",
     "price": "$5.000",
-    "img": "/image/nachos.png"
+    "img": "/image/nachos.png",
+    "amount": "1"
 }
 ]
 }
