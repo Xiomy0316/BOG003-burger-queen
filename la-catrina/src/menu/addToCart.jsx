@@ -6,7 +6,7 @@ const AddToCart = ({data}) => {
     
     //console.log(count)
 
-    console.log('data', data)
+    // console.log('data', data)
 
     
     

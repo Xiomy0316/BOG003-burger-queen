@@ -12,7 +12,7 @@ const Header = () => {
             <div className='sect-input'>
                 <input type='text' placeholder='Nombre' className='input-name'></input>
                 <select name='' className='num-table'>
-                    <option disabled selected>Mesa</option>
+                   {/*  <option disabled selected>Mesa</option> */}
                     <option value='Mesa1'>Mesa 1</option>
                     <option value='Mesa2'>Mesa 2</option>
                     <option value='Mesa3'>Mesa 3</option>

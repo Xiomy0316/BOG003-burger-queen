@@ -1,7 +1,9 @@
 import AddProducts from './addProducts';
 import AddToCart from './addToCart';
+import { useState } from "react";
 const ProductCategory = ({ data }) => {
-
+    
+    const [add, setAdd] = useState([]);
     return (
         <div className='products'>
             <h3>Comidas</h3>
@@ -11,7 +13,7 @@ const ProductCategory = ({ data }) => {
                         <img src={filterCategory.img} alt='' />
                         <p>{filterCategory.name}</p>
                         <p>{filterCategory.price}</p>
-                        {filterCategory.type.includes('breakfast') ? <AddProducts dataProduct={filterCategory} /> : ''}
+                        {filterCategory.type.includes('breakfast') ? <AddProducts dataProduct={filterCategory} addOrder={add} setAddOrder={setAdd} /> : ''}
                     </div>
                 ))
                 }
@@ -23,12 +25,12 @@ const ProductCategory = ({ data }) => {
                         <img src={filterCategory.img} alt='' />
                         <p>{filterCategory.name}</p>
                         <p>{filterCategory.price}</p>
-                        <AddProducts dataProduct={filterCategory} />
+                        <AddProducts dataProduct={filterCategory}  addOrder={add} setAddOrder={setAdd}  />
                     </div>
                 ))
                 }
             </section>
-            {/* find funciona trayendo el primer elemento que cumpla con la condicion dada */}
+            {/* Find funciona trayendo el primer elemento que cumpla con la condicion dada */}
             {data.find(item => item.category === 'Acompañamientos') ? <h3>Acompañamientos</h3> : ''}
             <section className='food-accompaniment'>
                 {data.filter(item => item.category.includes('Acompañamientos')).map(filterCategory => (
@@ -36,7 +38,7 @@ const ProductCategory = ({ data }) => {
                         <img src={filterCategory.img} alt='' />
                         <p>{filterCategory.name}</p>
                         <p>{filterCategory.price}</p>
-                        <AddProducts dataProduct={filterCategory} />
+                        <AddProducts dataProduct={filterCategory} addOrder={add} setAddOrder={setAdd} />
                     </div>
                 ))
                 }
