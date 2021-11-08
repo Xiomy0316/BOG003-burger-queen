@@ -1,39 +1,48 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 
-const AddProducts = ({ dataProduct, array , setArray }) => {
+const AddProducts = ({ dataProduct, addOrder, setAddOrder }) => {
 
-    const [count, setCount] = useState(0);
-    console.log(array)
+    // const [count, setCount] = useState(0);
+    console.log(addOrder)
 
     // console.log('dataproduct', dataProduct)
 
-    dataProduct.amount = count;
+    // dataProduct.amount = count;
 
     const addToCart = (idDataProduct) => {
-        if (array.length === 0) {
-            setArray([...array, dataProduct])
-        } else {
-            array.forEach((product) => {
-                if (product.id === idDataProduct) {
-                    setCount(count + 1)
-                    console.log('mismo producto');
-                } else {
 
-                    setArray([...array, dataProduct])
-                    console.log('producto difrente');
-                }
-            })
+        /* Devuelve el índice del primer elemento del array que cumpla con el id seleccionado */
+        const indexFound = addOrder.findIndex(item => item.id === idDataProduct)
+        /* Comprueba si índice del elemento se encuentra en el array */
+        if (indexFound !== -1) {
+            /* Se trae el elemnto que se encuentra en la posición indexFound */
+            const orderFound = addOrder[indexFound];
+            /* Toma los elementos del lado izquierdo y derecho del elemento que cumple con la condición */
+            const leftArray = addOrder.slice(0, indexFound);
+            const rightArray = addOrder.slice(indexFound + 1, addOrder.length);
+            /* Agregamos los elementos a un array y sumamos 1 al conteo del elemento que cumple con la condición */
+            setAddOrder([...leftArray, { ...orderFound, amount: orderFound.amount + 1 }, ...rightArray])
+        } else {
+            /* Si el elemento no se encuentra en el array agrega el elemento al array con amount = 1 */
+            setAddOrder([...addOrder, { ...dataProduct, amount: 1 }])
         }
     }
 
-    const removeToCart = () => (
-        count > 0 ? setCount(count - 1) : '')
-
+    const removeToCart = () => { }
 
     return (
         <Fragment>
             <button onClick={() => addToCart(dataProduct.id)}>+</button>
-            <p>{count}</p>
+            <p>{
+                addOrder.map(element =>
+                    <div key={element.id}>
+                        {element.amount} 
+                    </div>
+
+                )
+
+            }
+            </p>
             <button onClick={removeToCart}>-</button>
             {/* <button onClick={} className=''>
                 Agregar
@@ -43,3 +52,43 @@ const AddProducts = ({ dataProduct, array , setArray }) => {
 }
 
 export default AddProducts;
+
+/*
+const addToCart = (idDataProduct) => {
+
+    if (addOrder.length === 0) {
+        setAddOrder([...addOrder, [ {id: dataProduct.id, name: dataProduct.name, amount: count+1}]])
+        // console.log('array vacio');
+    } else {
+        // Si el id
+        if (addOrder.find(item => item.id === idDataProduct)) {
+            setCount(count +1)
+            console.log('mismo')
+        } else {
+            setAddOrder([...addOrder, [ { id: dataProduct.id, name: dataProduct.name, amount: count+1}]])
+            console.log('no es el mismo');
+        }
+    }
+
+
+} */
+
+
+/* FUNCIONA SIN CONTADOR
+
+const addToCart = (idDataProduct) => {
+
+    if (addOrder.length === 0) {
+        setAddOrder([...addOrder, dataProduct])
+    } else {
+        // Si el id
+        if (addOrder.find(item => item.id === idDataProduct)) {
+            setCount(count + 1)
+            console.log('mismo')
+        } else {
+            setAddOrder([...addOrder, dataProduct])
+            console.log('no es el mismo');
+        }
+    }
+
+} */
