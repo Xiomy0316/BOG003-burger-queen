@@ -1,8 +1,8 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 
 const AddProducts = ({ dataProduct, addOrder, setAddOrder }) => {
 
-    // const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
     console.log(addOrder)
 
     // console.log('dataproduct', dataProduct)
@@ -28,22 +28,38 @@ const AddProducts = ({ dataProduct, addOrder, setAddOrder }) => {
         }
     }
 
-    const removeToCart = () => { }
+    const removeToCart = (idDataProduct) => {
+        const indexFound = addOrder.findIndex(item => item.id === idDataProduct)
+        if (indexFound !== -1) {
+            const orderFound = addOrder[indexFound];
+            const leftArray = addOrder.slice(0, indexFound);
+            const rightArray = addOrder.slice(indexFound + 1, addOrder.length);
+            if (orderFound.amount > 0) {
+                setAddOrder([...leftArray, { ...orderFound, amount: orderFound.amount - 1 }, ...rightArray])
+            }
+            else if (orderFound.amount === 0) {
+                addOrder.splice(indexFound, 1)
+            }
+        }
+    }
+
+    const subtractCount = () => {
+        if (count > 0) {
+            setCount(count - 1)
+        }
+    }
 
     return (
         <Fragment>
-            <button onClick={() => addToCart(dataProduct.id)}>+</button>
-            <p>{
-                addOrder.map(element =>
-                    <div key={element.id}>
-                        {element.amount} 
-                    </div>
-
-                )
-
-            }
-            </p>
-            <button onClick={removeToCart}>-</button>
+            <button onClick={() => {
+                addToCart(dataProduct.id);
+                setCount(count + 1)
+            }}>+</button>
+            <p>{count}</p>
+            <button onClick={() => {
+                removeToCart(dataProduct.id);
+                subtractCount()
+            }}>-</button>
             {/* <button onClick={} className=''>
                 Agregar
             </button> */}
