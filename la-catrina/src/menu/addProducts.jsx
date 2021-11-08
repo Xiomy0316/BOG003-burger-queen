@@ -1,27 +1,43 @@
 import { Fragment, useState } from "react";
 
-const AddProducts = ({dataProduct}) => {
-  
-    // const [add, setAdd] = useState([]);
-    const [count, setCount] = useState(0);
-    //console.log(count)
+const AddProducts = ({ dataProduct, array , setArray }) => {
 
-    console.log('dataproduct', dataProduct)
+    const [count, setCount] = useState(0);
+    console.log(array)
+
+    // console.log('dataproduct', dataProduct)
 
     dataProduct.amount = count;
-    // setAdd([...add, dataProduct]);
-    // const addToCart = () => {
-        
-        
-    // }
+
+    const addToCart = (idDataProduct) => {
+        if (array.length === 0) {
+            setArray([...array, dataProduct])
+        } else {
+            array.forEach((product) => {
+                if (product.id === idDataProduct) {
+                    setCount(count + 1)
+                    console.log('mismo producto');
+                } else {
+
+                    setArray([...array, dataProduct])
+                    console.log('producto difrente');
+                }
+            })
+        }
+    }
+
+    const removeToCart = () => (
+        count > 0 ? setCount(count - 1) : '')
+
+
     return (
         <Fragment>
-        <button onClick={() => setCount(count+1)}>+</button>
-        <p>{count}</p>
-        <button onClick={() => count>0 ? setCount(count-1): ''}>-</button>
-        {/* <button onClick={addToCart} className=''>
-            Agregar
-        </button> */}
+            <button onClick={() => addToCart(dataProduct.id)}>+</button>
+            <p>{count}</p>
+            <button onClick={removeToCart}>-</button>
+            {/* <button onClick={} className=''>
+                Agregar
+            </button> */}
         </Fragment>
     )
 }

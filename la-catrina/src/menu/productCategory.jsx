@@ -1,7 +1,9 @@
 import AddProducts from './addProducts';
 import AddToCart from './addToCart';
+import { useState } from "react";
 const ProductCategory = ({ data }) => {
-
+    
+    const [add, setAdd] = useState([]);
     return (
         <div className='products'>
             <h3>Comidas</h3>
@@ -11,7 +13,7 @@ const ProductCategory = ({ data }) => {
                         <img src={filterCategory.img} alt='' />
                         <p>{filterCategory.name}</p>
                         <p>{filterCategory.price}</p>
-                        {filterCategory.type.includes('breakfast') ? <AddProducts dataProduct={filterCategory} /> : ''}
+                        {filterCategory.type.includes('breakfast') ? <AddProducts dataProduct={filterCategory} array={add} setArray={setAdd} /> : ''}
                     </div>
                 ))
                 }
@@ -23,7 +25,7 @@ const ProductCategory = ({ data }) => {
                         <img src={filterCategory.img} alt='' />
                         <p>{filterCategory.name}</p>
                         <p>{filterCategory.price}</p>
-                        <AddProducts dataProduct={filterCategory} />
+                        <AddProducts dataProduct={filterCategory}  array={add} setArray={setAdd}  />
                     </div>
                 ))
                 }
