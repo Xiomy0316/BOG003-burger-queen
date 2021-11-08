@@ -4,13 +4,16 @@ const AddProducts = ({dataProduct}) => {
   
     // const [add, setAdd] = useState([]);
     const [count, setCount] = useState(0);
-    //console.log(count)
+    const [order, setOrder] = useState([]);
+    dataProduct.amount = count;
+    
 
     console.log('dataproduct', dataProduct)
 
-    dataProduct.amount = count;
+    setOrder([...order]);
     // setAdd([...add, dataProduct]);
     // const addToCart = () => {
+        console.log(order)
         
         
     // }
