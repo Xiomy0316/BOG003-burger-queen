@@ -1,6 +1,7 @@
 import AddProducts from './addProducts';
-
+import AddToCart from './addToCart';
 const ProductCategory = ({ data }) => {
+
     return (
         <div className='products'>
             <h3>Comidas</h3>
@@ -10,7 +11,7 @@ const ProductCategory = ({ data }) => {
                         <img src={filterCategory.img} alt='' />
                         <p>{filterCategory.name}</p>
                         <p>{filterCategory.price}</p>
-                        <AddProducts/>
+                        {filterCategory.type.includes('breakfast') ? <AddProducts dataProduct={filterCategory} /> : ''}
                     </div>
                 ))
                 }
@@ -22,7 +23,7 @@ const ProductCategory = ({ data }) => {
                         <img src={filterCategory.img} alt='' />
                         <p>{filterCategory.name}</p>
                         <p>{filterCategory.price}</p>
-                        <AddProducts/>
+                        <AddProducts dataProduct={filterCategory} />
                     </div>
                 ))
                 }
@@ -35,11 +36,14 @@ const ProductCategory = ({ data }) => {
                         <img src={filterCategory.img} alt='' />
                         <p>{filterCategory.name}</p>
                         <p>{filterCategory.price}</p>
-                        <AddProducts/>
+                        <AddProducts dataProduct={filterCategory} />
                     </div>
                 ))
                 }
             </section>
+            <div>
+            <AddToCart/>
+            </div>
         </div >)
 }
 
