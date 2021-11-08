@@ -27,7 +27,7 @@ const ProductCategory = ({ data }) => {
                 ))
                 }
             </section>
-            {/* find funciona trayendo el primer elemento que cumpla con la condicion dada */}
+            {/* Find funciona trayendo el primer elemento que cumpla con la condicion dada */}
             {data.find(item => item.category === 'Acompañamientos') ? <h3>Acompañamientos</h3> : ''}
             <section className='food-accompaniment'>
                 {data.filter(item => item.category.includes('Acompañamientos')).map(filterCategory => (
