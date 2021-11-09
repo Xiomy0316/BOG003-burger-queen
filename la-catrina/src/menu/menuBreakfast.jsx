@@ -3,7 +3,7 @@ import ProductCategory from './productCategory';
 import { Fragment, useEffect, useState } from 'react';
 
 import axios from 'axios';
-import Header from './header';
+//import Header from './header';
 //import dataJson from '../data/data.json';
 //console.log(dataJson.products[0].category);
 
@@ -23,7 +23,7 @@ const MenuBreakfast = () => {
     return (
         <Fragment>
             <section className='sect-menu'>
-                <Header />
+                {/* <Header name={''}/> */}
                 <main className='container-menu'>
                     <div>
                         <ProductCategory data={databreakfast}/>

@@ -1,8 +1,24 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import logoWhite from '../img/burrito-blanco.png';
 import add from '../img/mas.png';
 
 const Header = () => {
+    const [person, setPerson] = useState('');
+    const [table, setTable] = useState('Mesa');
+
+    const onCostumerName = (event) => {
+        setPerson(
+            event.target.value
+        );
+    }
+
+    const onTableSelect = (event) => {
+        setTable(
+            event.target.value
+        );
+    }
+    console.log(table);
+
     return (
         <Fragment>
             <header >
@@ -10,14 +26,26 @@ const Header = () => {
                 <a href='/menu'><img className='add-order' src={add} alt='logo' /></a>
             </header>
             <div className='sect-input'>
-                <input type='text' placeholder='Nombre' className='input-name'></input>
-                <select name='' className='num-table'>
-                   {/*  <option disabled selected>Mesa</option> */}
+                <input
+                    type='text'
+                    placeholder='Nombre'
+                    className='input-name'
+                    onChange={onCostumerName}
+                    value={person}
+                />
+                <select
+                    name='numTable'
+                    className='num-table'
+                    onChange={onTableSelect}
+                    value={table}
+                >
+                    <option disabled value='Mesa'>Mesa</option>
                     <option value='Mesa1'>Mesa 1</option>
                     <option value='Mesa2'>Mesa 2</option>
                     <option value='Mesa3'>Mesa 3</option>
                     <option value='Mesa4'>Mesa 4</option>
                     <option value='Mesa5'>Mesa 5</option>
+
                 </select>
             </div>
             <div className='sect-buttons'>

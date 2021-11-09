@@ -1,10 +1,13 @@
 import AddProducts from './addProducts';
 import AddToCart from './addToCart';
-import { useState } from "react";
+import { Fragment, useState } from "react";
+import Header from './header';
+
 const ProductCategory = ({ data }) => {
-    
     const [add, setAdd] = useState([]);
     return (
+        <Fragment>
+        <Header name={''}/>
         <div className='products'>
             <h3>Comidas</h3>
             <section className='food'>
@@ -46,7 +49,8 @@ const ProductCategory = ({ data }) => {
             <div>
             <AddToCart/>
             </div>
-        </div >)
+        </div >
+        </Fragment>)
 }
 
 export default ProductCategory;

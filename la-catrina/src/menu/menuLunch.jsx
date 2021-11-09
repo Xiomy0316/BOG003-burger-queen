@@ -1,7 +1,7 @@
 import './menu.scss';
 import ProductCategory from './productCategory';
 import { Fragment, useEffect, useState } from 'react';
-import Header from './header';
+//import Header from './header';
 import axios from 'axios';
 
 const MenuLunch = () => {
@@ -19,7 +19,7 @@ const MenuLunch = () => {
     return (
         <Fragment>
             <section className="sect-menu">
-                <Header />
+                {/* <Header /> */}
                 <div>
                     {}
                     <ProductCategory data={datalunch}/>

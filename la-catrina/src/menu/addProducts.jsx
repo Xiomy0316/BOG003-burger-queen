@@ -1,8 +1,10 @@
 import { Fragment, useState } from "react";
 
-const AddProducts = ({ dataProduct, addOrder, setAddOrder }) => {
 
+const AddProducts = ({ dataProduct, addOrder, setAddOrder}) => {
+    // const AddProducts = ({ dataProduct }) => {
     const [count, setCount] = useState(0);
+    // const [addOrder, setAddOrder] = useState([]);
     console.log(addOrder)
 
     // console.log('dataproduct', dataProduct)
