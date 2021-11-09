@@ -2,22 +2,21 @@ import { Fragment, useState } from "react";
 import logoWhite from '../img/burrito-blanco.png';
 import add from '../img/mas.png';
 
-const Header = () => {
-    const [person, setPerson] = useState('');
+const Header = ({ personName, onCostumerName }) => {
+
     const [table, setTable] = useState('Mesa');
 
-    const onCostumerName = (event) => {
+    /* const onCostumerName = (event) => {
         setPerson(
             event.target.value
         );
-    }
+    } */
 
     const onTableSelect = (event) => {
         setTable(
             event.target.value
         );
     }
-    console.log(table);
 
     return (
         <Fragment>
@@ -30,8 +29,8 @@ const Header = () => {
                     type='text'
                     placeholder='Nombre'
                     className='input-name'
-                    onChange={onCostumerName}
-                    value={person}
+                    onBlur={onCostumerName}
+                   defaultValue={personName} 
                 />
                 <select
                     name='numTable'
