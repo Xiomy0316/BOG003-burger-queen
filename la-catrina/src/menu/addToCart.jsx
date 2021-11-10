@@ -1,11 +1,11 @@
 import { Fragment, useState } from "react";
 
-const AddToCart = ({data}) => {
+const AddToCart = ({addOrder, setAddOrder, personName, tableSelect}) => {
   
     const [addCart, setAddCart] = useState([]);
     
     const createOrder = () => {
-        setAddCart([...addCart, data]);
+        setAddOrder([...addOrder, { person: personName }, {table: tableSelect} ]);
      }
     return (
         <Fragment>

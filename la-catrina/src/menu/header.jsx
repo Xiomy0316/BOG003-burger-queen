@@ -1,10 +1,10 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import logoWhite from '../img/burrito-blanco.png';
 import add from '../img/mas.png';
 
-const Header = ({ personName, onCostumerName, addOrder, setAddOrder }) => {
+const Header = ({ personName, onCostumerName, addOrder, setAddOrder, onTableSelect, tableSelect }) => {
 
-    const [table, setTable] = useState('Mesa');
+    
 
     /* const onCostumerName = (event) => {
         setPerson(
@@ -12,14 +12,10 @@ const Header = ({ personName, onCostumerName, addOrder, setAddOrder }) => {
         );
     } */
 
-    const onTableSelect = (event) => {
-        setTable(
-            event.target.value
-        );
-    }
+
 
     /* Añadir el nombre del usuario al array de set add (me traje set add y add como props ) */
-    const addCustomerName = () =>  setAddOrder([...addOrder, { person: personName }])
+    /* const addCustomerName = () =>  setAddOrder([...addOrder, { person: personName }, {table: tableSelect}]) */
    
 
     return (
@@ -35,14 +31,14 @@ const Header = ({ personName, onCostumerName, addOrder, setAddOrder }) => {
                     className='input-name'
                     /* Agregué el evento onchange que obtiene el valor del imput y onblur que lo añade al array */
                     onChange={onCostumerName}
-                    onBlur={addCustomerName}
+                    /* onBlur={addCustomerName} */
                    defaultValue={personName} 
                 />
                 <select
                     name='numTable'
                     className='num-table'
                     onChange={onTableSelect}
-                    value={table}
+                    value={tableSelect}
                 >
                     <option disabled value='Mesa'>Mesa</option>
                     <option value='Mesa1'>Mesa 1</option>

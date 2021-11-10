@@ -6,15 +6,28 @@ import Header from './header';
 const ProductCategory = ({ data }) => {
     const [add, setAdd] = useState([]);
     const [person, setPerson] = useState('');
+    const [table, setTable] = useState('Mesa');
 
     const onCostumerName = (event) => {
         setPerson(event.target.value);
 
     }
 
+    const onTableSelect = (event) => {
+        setTable(
+            event.target.value
+        );
+    }
+
     return (
         <Fragment>
-            <Header addOrder={add} setAddOrder={setAdd} personName={person} onCostumerName={onCostumerName} />
+            <Header 
+            addOrder={add} 
+            setAddOrder={setAdd} 
+            personName={person} 
+            onCostumerName={onCostumerName} 
+            onTableSelect={onTableSelect}
+            tableSelect={table}/>
             <div className='products'>
                 <h3>Comidas</h3>
                 <section className='food'>
@@ -59,7 +72,7 @@ const ProductCategory = ({ data }) => {
                     }
                 </section>
                 <div>
-                    <AddToCart />
+                    <AddToCart addOrder={add} setAddOrder={setAdd} personName={person} tableSelect={table}/>
                 </div>
             </div >
         </Fragment>)
