@@ -50,6 +50,10 @@ const AddProducts = ({ dataProduct, addOrder, setAddOrder, personName, addCustom
     return (
         <Fragment>
 
+            <img src={dataProduct.img} alt='' />
+            <p>{dataProduct.name}</p>
+            <p>{dataProduct.price}</p>
+
             <button onClick={() => {
                 addToCart(dataProduct.id);
                 setCount(count + 1)
@@ -62,10 +66,10 @@ const AddProducts = ({ dataProduct, addOrder, setAddOrder, personName, addCustom
             {/* <button onClick={} className=''>
                 Agregar
             </button> */}
-            
+
         </Fragment>
     )
-    
+
 }
 
 export default AddProducts;

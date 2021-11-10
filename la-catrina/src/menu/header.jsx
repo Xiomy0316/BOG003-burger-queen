@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import logoWhite from '../img/burrito-blanco.png';
 import add from '../img/mas.png';
 
-const Header = ({ personName, onCostumerName }) => {
+const Header = ({ personName, onCostumerName, addOrder, setAddOrder }) => {
 
     const [table, setTable] = useState('Mesa');
 
@@ -18,6 +18,10 @@ const Header = ({ personName, onCostumerName }) => {
         );
     }
 
+    /* Añadir el nombre del usuario al array de set add (me traje set add y add como props ) */
+    const addCustomerName = () =>  setAddOrder([...addOrder, { person: personName }])
+   
+
     return (
         <Fragment>
             <header >
@@ -29,7 +33,9 @@ const Header = ({ personName, onCostumerName }) => {
                     type='text'
                     placeholder='Nombre'
                     className='input-name'
-                    onBlur={onCostumerName}
+                    /* Agregué el evento onchange que obtiene el valor del imput y onblur que lo añade al array */
+                    onChange={onCostumerName}
+                    onBlur={addCustomerName}
                    defaultValue={personName} 
                 />
                 <select
