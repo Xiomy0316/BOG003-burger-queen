@@ -10,7 +10,6 @@ const ProductCategory = ({ data }) => {
 
     const onCostumerName = (event) => {
         setPerson(event.target.value);
-
     }
 
     const onTableSelect = (event) => {
@@ -33,7 +32,6 @@ const ProductCategory = ({ data }) => {
                 <section className='food'>
                     {data.filter(item => item.category.includes('Comidas')).map(filterCategory => (
                         <div key={filterCategory.id}>
-
                             {filterCategory.type.includes('breakfast') ?
                                 <AddProducts dataProduct={filterCategory} addOrder={add} setAddOrder={setAdd} personName={person} /> :
                                 <div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,8 +10,20 @@ import MenuLunch from './menu/menuLunch.jsx'
 import Order from './order/order.js'
 import Chef from './chef/chef.js'
 import MenuBreakfast from "./menu/menuBreakfast.jsx";
+import { collection, getDocs } from "firebase/firestore";
+import db from './firebase/firebaseConfig'
+//import { async } from "@firebase/util";
 
-const App = () => (
+const App = () => {
+  useEffect(() => {
+
+      const getData = async() => {
+        const data = await getDocs(collection(db, 'pedidos'));
+        console.log(data);
+      }
+      getData();
+  }, []);
+  return (
     <Router>
       <div>
         <Switch>
@@ -34,5 +46,6 @@ const App = () => (
       </div>
     </Router>
   );
+}
 
   export default App;
