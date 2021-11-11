@@ -8,7 +8,7 @@ const AddToCart = ({ addOrder, setAddOrder, personName, tableSelect }) => {
 
     const createOrder = () => {
         setAddOrder([...addOrder, { person: personName }, { table: tableSelect }]);
-        uploadOrder();
+        uploadOrder(); 
     }
 
     const uploadOrder = async () => {
@@ -20,10 +20,18 @@ const AddToCart = ({ addOrder, setAddOrder, personName, tableSelect }) => {
         console.log("Document written with ID: ", docRef.id);
     }
 
+    const validateImputName = () => {
+        if (personName === '' || tableSelect === 'Mesa'){
+            alert('No puede ingresar campo vacío')
+        } else {
+            createOrder()
+        }
+    }
+
 
     return (
         <Fragment>
-            <button onClick={createOrder} >
+            <button onClick={validateImputName}>
                 Guardar Pedido
             </button>
         </Fragment>
