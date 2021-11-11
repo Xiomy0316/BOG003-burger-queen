@@ -3,13 +3,14 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECTID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGEBUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID,
-  appId: process.env.REACT_APP_FIREBASE_APPID
+  apiKey: "AIzaSyBiUMtiQC2yTZvV_EEO4FMkG4qEniAyez8",
+  authDomain: "la-catrina-da086.firebaseapp.com",
+  projectId: "la-catrina-da086",
+  storageBucket: "la-catrina-da086.appspot.com",
+  messagingSenderId: "459162347131",
+  appId: "1:459162347131:web:427e220af208fa005364de"
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
