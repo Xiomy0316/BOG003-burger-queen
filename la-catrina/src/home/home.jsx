@@ -9,7 +9,7 @@ const Home = () => (
   <Fragment>
     <header className='header-home'>
       <section className='sect-logo'>
-        <h1><img className='logo-home' src={logo} alt='Logo La Catrina'/>La Catrina
+        <h1><img className='logo-home' src={logo} alt='Logo La Catrina' />La Catrina
         </h1>
       </section>
       <nav className='sect-nav'>

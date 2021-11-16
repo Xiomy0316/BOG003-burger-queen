@@ -4,11 +4,11 @@ import { Fragment, useState } from "react";
 import Header from './header';
 
 const ProductCategory = ({ data }) => {
-    const [add, setAdd] = useState([]);
+    const [addToOrder, setAddToOrder] = useState([]);
     const [person, setPerson] = useState('');
     const [table, setTable] = useState('Mesa');
 
-    const onCostumerName = (event) => {
+    const onCustomerName = (event) => {
         setPerson(event.target.value);
     }
 
@@ -20,24 +20,28 @@ const ProductCategory = ({ data }) => {
 
     return (
         <Fragment>
-            <Header 
-            addOrder={add} 
-            setAddOrder={setAdd} 
-            personName={person} 
-            onCostumerName={onCostumerName} 
-            onTableSelect={onTableSelect}
-            tableSelect={table}/>
+            <Header
+                personName={person}
+                onCustomerName={onCustomerName}
+                tableSelect={table}
+                onTableSelect={onTableSelect}
+            />
             <div className='products'>
                 <h3>Comidas</h3>
                 <section className='food'>
-                    {data.filter(item => item.category.includes('Comidas')).map(filterCategory => (
-                        <div key={filterCategory.id}>
-                            {filterCategory.type.includes('breakfast') ?
-                                <AddProducts dataProduct={filterCategory} addOrder={add} setAddOrder={setAdd} personName={person} /> :
+                    {data.filter(product => product.category.includes('Comidas')).map(productByCategory => (
+                        <div key={productByCategory.id}>
+                            {productByCategory.type.includes('breakfast') ?
+                                <AddProducts
+                                    dataProduct={productByCategory}
+                                    addOrder={addToOrder}
+                                    setAddOrder={setAddToOrder}
+                                    personName={person}
+                                /> :
                                 <div>
-                                    <img src={filterCategory.img} alt='' />
-                                    <p>{filterCategory.name}</p>
-                                    <p>{filterCategory.price}</p>
+                                    <img src={productByCategory.img} alt='' />
+                                    <p>{productByCategory.name}</p>
+                                    <p>{productByCategory.price}</p>
                                 </div>
                             }
                         </div>
@@ -46,15 +50,15 @@ const ProductCategory = ({ data }) => {
                 </section>
                 <h3>Bebidas</h3>
                 <section className='drinks'>
-                    {data.filter(item => item.category.includes('Bebidas')).map(filterCategory => (
-                        <div key={filterCategory.id}>
+                    {data.filter(item => item.category.includes('Bebidas')).map(productByCategory => (
+                        <div key={productByCategory.id}>
 
                             <AddProducts
-                                dataProduct={filterCategory}
-                                addOrder={add}
-                                setAddOrder={setAdd}
+                                dataProduct={productByCategory}
+                                addOrder={addToOrder}
+                                setAddOrder={setAddToOrder}
                                 personName={person}
-                                /* addCustomerName={addCustomerName} */ />
+                            />
                         </div>
                     ))
                     }
@@ -62,15 +66,24 @@ const ProductCategory = ({ data }) => {
                 {/* Find funciona trayendo el primer elemento que cumpla con la condicion dada */}
                 {data.find(item => item.category === 'Acompañamientos') ? <h3>Acompañamientos</h3> : ''}
                 <section className='food-accompaniment'>
-                    {data.filter(item => item.category.includes('Acompañamientos')).map(filterCategory => (
-                        <div key={filterCategory.id}>
-                            <AddProducts dataProduct={filterCategory} addOrder={add} setAddOrder={setAdd} />
+                    {data.filter(item => item.category.includes('Acompañamientos')).map(productByCategory => (
+                        <div key={productByCategory.id}>
+                            <AddProducts
+                                dataProduct={productByCategory}
+                                addOrder={addToOrder}
+                                setAddOrder={setAddToOrder}
+                            />
                         </div>
                     ))
                     }
                 </section>
                 <div>
-                    <AddToCart addOrder={add} setAddOrder={setAdd} personName={person} tableSelect={table}/>
+                    <AddToCart
+                        addOrder={addToOrder}
+                        setAddOrder={setAddToOrder}
+                        personName={person}
+                        tableSelect={table}
+                    />
                 </div>
             </div >
         </Fragment>)

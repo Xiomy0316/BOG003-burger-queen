@@ -1,4 +1,3 @@
-
 $font: 'Comfortaa', cursive;
 $blueColor: #04BFAD;
 $blackColor: #151616;
@@ -13,14 +12,10 @@ $blackColor: #151616;
     }
 }
 
-.container-menu{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-.add-order {
+.go-order {
     width: 68px;
+    padding-right: 18px;
+    padding-top: 15px;
 }
 
 .logo-white {
@@ -123,11 +118,11 @@ $blackColor: #151616;
     display: flex;
     margin: 15px;  
 }
-.go-order {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
+// .go-order {
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+// }
 .btn-order{
     margin-top:20px;
     background-color: $blueColor;
