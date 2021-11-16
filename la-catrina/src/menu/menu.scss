@@ -12,17 +12,25 @@ $blackColor: #151616;
     }
 }
 
-.go-order {
+@mixin logo-menu {
     width: 68px;
-    padding-right: 18px;
     padding-top: 15px;
 }
+
 
 .logo-white {
     width: 80px;
     transform: rotate(30deg);
     padding-left: 18px;
     padding-top: 15px;
+}
+.logo-plus{
+    @include logo-menu;
+}
+
+.go-order {
+   @include logo-menu;
+    padding-right: 18px;
 }
 
 .sect-input{
@@ -118,12 +126,13 @@ $blackColor: #151616;
     display: flex;
     margin: 15px;  
 }
-// .go-order {
-//     width: 100%;
-//     display: flex;
-//     justify-content: center;
-// }
-.btn-order{
+.save-order {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-save-order{
     margin-top:20px;
     background-color: $blueColor;
     color: #333;

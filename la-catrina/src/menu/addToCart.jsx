@@ -5,7 +5,7 @@ import db from '../firebase/firebaseConfig'
 const AddToCart = ({ addOrder, setAddOrder, personName, tableSelect }) => {
     const messageInput = document.getElementById('messageInput');
     const messageSaveOrder = document.getElementById('messageSaveOrder')
-    // const [addCart, setAddCart] = useState([]);
+    // 'const [addCart, setAddCart] = useState([]);
 
     const createOrder = () => {
         setAddOrder([...addOrder, { person: personName }, { table: tableSelect }]);
@@ -15,12 +15,10 @@ const AddToCart = ({ addOrder, setAddOrder, personName, tableSelect }) => {
 
     const uploadOrder = async () => {
         console.log('Se crea pedido');
-        // // Add a new document in collection "cities"
-        // const docRef = await addDoc(collection(db, "pedidos"),
-        // {...addOrder, personName ,  tableSelect }
-        // ).catch((error) => console.log('error en upload', error));
-
-        // console.log("Document written with ID: ", docRef.id);
+        const docRef = await addDoc(collection(db, "pedidos"),
+            { ...addOrder, personName, tableSelect }
+        ).catch((error) => console.log('error en upload', error));
+        console.log("Document written with ID: ", docRef.id);
     }
 
     const validateInputName = () => {
@@ -34,13 +32,14 @@ const AddToCart = ({ addOrder, setAddOrder, personName, tableSelect }) => {
         }
     }
 
-
     return (
         <Fragment>
-            <p id='messageSaveOrder'></p>
-            <button onClick={validateInputName}>
-                Guardar Pedido
-            </button>
+            <section className='save-order'>
+                <p id='messageSaveOrder'></p>
+                <button className='btn-save-order' onClick={validateInputName}>
+                    Guardar Pedido
+                </button>
+            </section>
         </Fragment>
     )
 }

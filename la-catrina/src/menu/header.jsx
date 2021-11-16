@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import logoWhite from '../img/burrito-blanco.png';
-import cart from '../img/carrito-de-compras.png'
+import cart from '../img/carrito-de-compras.png';
+import logoPlus from '../img/mas.png';
 
 const Header = ({ personName, onCustomerName, onTableSelect, tableSelect }) => {
 
@@ -8,6 +9,7 @@ const Header = ({ personName, onCustomerName, onTableSelect, tableSelect }) => {
         <Fragment>
             <header >
                 <a href='/'><img className='logo-white' src={logoWhite} alt='logo' /></a>
+                <a href='/menu'><img className='logo-plus' src={logoPlus} alt='plus' /></a>
                 <a href='/order'><img className='go-order' src={cart} alt='cart' /></a>
             </header>
             <div className='sect-input'>

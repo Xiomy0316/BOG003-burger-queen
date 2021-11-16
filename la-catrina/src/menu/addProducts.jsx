@@ -1,11 +1,8 @@
 import { Fragment, useState } from "react";
 
-const AddProducts = ({ dataProduct, addOrder, setAddOrder, personName, addCustomerName }) => {
+const AddProducts = ({ dataProduct, addOrder, setAddOrder}) => {
     const [count, setCount] = useState(0);
-
     console.log(addOrder)
-    // console.log('customer' , addCustomerName);
-    // console.log('personname', personName);
 
     const addToCart = (idDataProduct) => {
         /* Devuelve el índice del primer elemento del array que cumpla con el id seleccionado */
@@ -62,10 +59,6 @@ const AddProducts = ({ dataProduct, addOrder, setAddOrder, personName, addCustom
                 removeToCart(dataProduct.id);
                 subtractCount()
             }}>-</button>
-            {/* <button onClick={} className=''>
-                Agregar
-            </button> */}
-
         </Fragment>
     )
 
