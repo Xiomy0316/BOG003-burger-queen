@@ -3,7 +3,7 @@ import { Fragment, useState } from "react";
 const AddProducts = ({ dataProduct, addOrder, setAddOrder, personName, addCustomerName }) => {
     const [count, setCount] = useState(0);
 
-    console.log(addOrder)
+    //console.log(addOrder)
     // console.log('customer' , addCustomerName);
     // console.log('personname', personName);
 
