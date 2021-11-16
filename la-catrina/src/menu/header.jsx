@@ -25,6 +25,7 @@ const Header = ({ personName, onCostumerName, addOrder, setAddOrder, onTableSele
                 <a href='/menu'><img className='add-order' src={add} alt='logo' /></a>
             </header>
             <div className='sect-input'>
+                {/* <p>{personName === '' ? 'error' : ''}</p> */}
                 <input
                     type='text'
                     placeholder='Nombre'

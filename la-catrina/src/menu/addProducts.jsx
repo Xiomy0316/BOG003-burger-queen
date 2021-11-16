@@ -23,7 +23,6 @@ const AddProducts = ({ dataProduct, addOrder, setAddOrder, personName, addCustom
             /* Si el elemento no se encuentra en el array agrega el elemento al array con amount = 1 */
             setAddOrder([...addOrder, { ...dataProduct, amount: 1 }])
         }
-
     }
 
     const removeToCart = (idDataProduct) => {
