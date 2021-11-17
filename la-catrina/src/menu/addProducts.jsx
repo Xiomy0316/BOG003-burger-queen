@@ -1,8 +1,10 @@
 import { Fragment, useState } from "react";
+import plusSign from '../img/signo-mas.png';
+import minusSign from '../img/signo-menos.png';
 
 const AddProducts = ({ dataProduct, addOrder, setAddOrder }) => {
     const [count, setCount] = useState(0);
-    // console.log(addOrder)
+    //console.log(addOrder, 'addProducts')
 
     const addToCart = (idDataProduct) => {
         /* Devuelve el índice del primer elemento del array que cumpla con el id seleccionado */
@@ -46,17 +48,18 @@ const AddProducts = ({ dataProduct, addOrder, setAddOrder }) => {
 
             <img src={dataProduct.img} alt='' />
             <p>{dataProduct.name}</p>
-            <p>{dataProduct.price}</p>
-
-            <button onClick={() => {
-                addToCart(dataProduct.id);
-                setCount(count + 1)
-            }}>+</button>
-            <p>{count}</p>
-            <button onClick={() => {
-                removeToCart(dataProduct.id);
-                subtractCount()
-            }}>-</button>
+            <p>$ {dataProduct.price}</p>
+            <section className='sect-btn-amount'>
+                <img src={minusSign} alt='minus'onClick={() => {
+                    removeToCart(dataProduct.id);
+                    subtractCount()
+                }}></img>
+                <p>{count}</p>
+                <img src={plusSign} alt='plus' onClick={() => {
+                    addToCart(dataProduct.id);
+                    setCount(count + 1)
+                }}></img>
+            </section>
         </Fragment>
     )
 

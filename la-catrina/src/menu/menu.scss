@@ -17,7 +17,6 @@ $blackColor: #151616;
     padding-top: 15px;
 }
 
-
 .logo-white {
     width: 80px;
     transform: rotate(30deg);
@@ -99,10 +98,11 @@ $blackColor: #151616;
 .container-products {
     display: flex;
     justify-content: center;
+    font-family: $font;
 }
 .products {
     margin-top:20px;
-    width: 45%;
+    width: 50%;
     /* display: flex;
     flex-direction: column;
     height: 80vh;
@@ -112,16 +112,35 @@ $blackColor: #151616;
    }
     img {
         width: 110px;
+        align-self: center;
     }
-    div {
-        display: flex;
-        flex-direction: column; 
-        justify-content: flex-end;
-    }
+    
 }
-.food{
+.container-cards-food{
     display: flex;
-    margin: 15px; 
+    margin: 15px;
+    line-height: 25px;
+}
+
+.card-product {
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-end;
+    margin-right: 15px;
+    line-height: 25px;
+    border: 1px solid #818181;
+    border-radius: 14px;
+    width: 30%;
+    text-align: center
+}
+
+.sect-btn-amount {
+    display: flex;
+    justify-content: space-around;
+    img {
+        width: 16px;
+        height: 16px;
+    }
 }
 .drinks{
     display: flex; 
@@ -134,8 +153,14 @@ $blackColor: #151616;
 .order-summary{
     border: 2px solid $blueColor;
     border-radius: 10px;
-    width: 45%;
+    width: 40%;
     margin-top:20px;
+    line-height: 25px;
+    h3 {
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
 
 }
 .product-summary{
@@ -145,6 +170,12 @@ $blackColor: #151616;
         width: 30%;
         text-align: center;
     }
+}
+.total-order-price {
+    text-align: right;
+    padding-right: 75px;
+    color: $blueColor;
+
 }
 .save-order {
     width: 100%;

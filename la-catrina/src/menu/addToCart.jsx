@@ -6,7 +6,7 @@ const AddToCart = ({ addOrder, setAddOrder, personName, tableSelect }) => {
     const messageInput = document.getElementById('messageInput');
     const messageSaveOrder = document.getElementById('messageSaveOrder')
     // 'const [addCart, setAddCart] = useState([]);
-
+    console.log(addOrder, 'addToCart');
     const createOrder = () => {
         setAddOrder([...addOrder, { person: personName }, { table: tableSelect }]);
         uploadOrder();
@@ -24,7 +24,7 @@ const AddToCart = ({ addOrder, setAddOrder, personName, tableSelect }) => {
     const validateInputName = () => {
         if (personName === '' || tableSelect === 'Mesa') {
             messageInput.innerHTML = `Por favor rellene todos los campos`;
-        } if (addOrder.length === 0) {
+        } else if (addOrder.length === 0) {
             console.log(addOrder.length);
             alert('No has hecho un pedido')
         } else {

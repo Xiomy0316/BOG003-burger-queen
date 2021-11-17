@@ -30,9 +30,9 @@ const ProductCategory = ({ data }) => {
             <section className='container-products'>
                 <div className='products'>
                     <h3>Comidas</h3>
-                    <section className='food'>
+                    <section className='container-cards-food'>
                         {data.filter(product => product.category.includes('Comidas')).map(productByCategory => (
-                            <div key={productByCategory.id}>
+                            <div key={productByCategory.id} className='card-product'>
                                 {productByCategory.type.includes('breakfast') ?
                                     <AddProducts
                                         dataProduct={productByCategory}
@@ -43,7 +43,7 @@ const ProductCategory = ({ data }) => {
                                     <div>
                                         <img src={productByCategory.img} alt='' />
                                         <p>{productByCategory.name}</p>
-                                        <p>{productByCategory.price}</p>
+                                        <p>$ {productByCategory.price}</p>
                                     </div>
                                 }
                             </div>
@@ -53,8 +53,7 @@ const ProductCategory = ({ data }) => {
                     <h3>Bebidas</h3>
                     <section className='drinks'>
                         {data.filter(item => item.category.includes('Bebidas')).map(productByCategory => (
-                            <div key={productByCategory.id}>
-
+                            <div key={productByCategory.id} className='card-product'>
                                 <AddProducts
                                     dataProduct={productByCategory}
                                     addOrder={addToOrder}
@@ -69,7 +68,7 @@ const ProductCategory = ({ data }) => {
                     {data.find(item => item.category === 'Acompañamientos') ? <h3>Acompañamientos</h3> : ''}
                     <section className='food-accompaniment'>
                         {data.filter(item => item.category.includes('Acompañamientos')).map(productByCategory => (
-                            <div key={productByCategory.id}>
+                            <div key={productByCategory.id} className='card-product'>
                                 <AddProducts
                                     dataProduct={productByCategory}
                                     addOrder={addToOrder}
