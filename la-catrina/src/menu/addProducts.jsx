@@ -1,8 +1,8 @@
 import { Fragment, useState } from "react";
 
-const AddProducts = ({ dataProduct, addOrder, setAddOrder}) => {
+const AddProducts = ({ dataProduct, addOrder, setAddOrder }) => {
     const [count, setCount] = useState(0);
-    console.log(addOrder)
+    // console.log(addOrder)
 
     const addToCart = (idDataProduct) => {
         /* Devuelve el índice del primer elemento del array que cumpla con el id seleccionado */
@@ -23,17 +23,15 @@ const AddProducts = ({ dataProduct, addOrder, setAddOrder}) => {
     }
 
     const removeToCart = (idDataProduct) => {
+        /* Cuando el valor de amount llegue a 0 se elimina el elemento del array */
         const indexFound = addOrder.findIndex(item => item.id === idDataProduct)
+        setAddOrder(addOrder.filter(item => item.amount >= 1));
         if (indexFound !== -1) {
             const orderFound = addOrder[indexFound];
             const leftArray = addOrder.slice(0, indexFound);
             const rightArray = addOrder.slice(indexFound + 1, addOrder.length);
-            if (orderFound.amount > 0) {
+            if (orderFound.amount >= 1) {
                 setAddOrder([...leftArray, { ...orderFound, amount: orderFound.amount - 1 }, ...rightArray])
-            }
-            /* Cuando el valor de amount llegue a 0 se elimina el elemento del array */
-            else if (orderFound.amount === 0) {
-                addOrder.splice(indexFound, 1)
             }
         }
     }
