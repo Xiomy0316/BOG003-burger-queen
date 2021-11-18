@@ -37,20 +37,21 @@ const AddProducts = ({ dataProduct, addOrder, setAddOrder }) => {
             }
         }
     }
-
+    
+    /* Disminuir cantidades en el contador */
     const subtractCount = () => {
         if (count > 0) {
             setCount(count - 1)
         }
     }
+
     return (
         <Fragment>
-
             <img src={dataProduct.img} alt='' />
             <p>{dataProduct.name}</p>
             <p>$ {dataProduct.price}</p>
             <section className='sect-btn-amount'>
-                <img src={minusSign} alt='minus'onClick={() => {
+                <img src={minusSign} alt='minus' onClick={() => {
                     removeToCart(dataProduct.id);
                     subtractCount()
                 }}></img>
@@ -62,26 +63,6 @@ const AddProducts = ({ dataProduct, addOrder, setAddOrder }) => {
             </section>
         </Fragment>
     )
-
 }
 
 export default AddProducts;
-
-/* FUNCIONA SIN CONTADOR
-
-const addToCart = (idDataProduct) => {
-
-    if (addOrder.length === 0) {
-        setAddOrder([...addOrder, dataProduct])
-    } else {
-        // Si el id
-        if (addOrder.find(item => item.id === idDataProduct)) {
-            setCount(count + 1)
-            console.log('mismo')
-        } else {
-            setAddOrder([...addOrder, dataProduct])
-            console.log('no es el mismo');
-        }
-    }
-
-} */

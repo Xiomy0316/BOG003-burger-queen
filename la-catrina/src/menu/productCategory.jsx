@@ -1,6 +1,6 @@
+import { Fragment, useState } from "react";
 import AddProducts from './addProducts';
 import AddToCart from './addToCart';
-import { Fragment, useState } from "react";
 import Header from './header';
 import OrderSummary from './orderSummary';
 
@@ -27,10 +27,10 @@ const ProductCategory = ({ data }) => {
                 tableSelect={table}
                 onTableSelect={onTableSelect}
             />
-            <section className='container-products'>
+            <section className='products-container'>
                 <div className='products'>
                     <h3>Comidas</h3>
-                    <section className='container-cards-food'>
+                    <section className='cards-food-container'>
                         {data.filter(product => product.category.includes('Comidas')).map(productByCategory => (
                             <div key={productByCategory.id} className='card-product'>
                                 {productByCategory.type.includes('breakfast') ?

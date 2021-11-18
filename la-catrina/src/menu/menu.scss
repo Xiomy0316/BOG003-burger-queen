@@ -64,6 +64,16 @@ $blackColor: #151616;
     height: 35px;    
 }
 
+.message-input {
+    display: flex;
+    justify-content: center;
+    font-family: $font;
+    height: 30px;
+    align-items: center;
+    margin-top: 20px;
+    color: rgba(255, 208, 0, 0.932);
+}
+
 .sect-buttons{
     display: flex;
     justify-content: space-evenly;
@@ -95,7 +105,7 @@ $blackColor: #151616;
     font-weight: bold;
     @include btn-menu;
 }
-.container-products {
+.products-container {
     display: flex;
     justify-content: center;
     font-family: $font;
@@ -116,7 +126,7 @@ $blackColor: #151616;
     }
     
 }
-.container-cards-food{
+.cards-food-container {
     display: flex;
     margin: 15px;
     line-height: 25px;
@@ -182,12 +192,17 @@ $blackColor: #151616;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100px;
+    justify-content: space-evenly;
+    p {
+        font-family: $font;
+    }
 }
 .btn-save-order{
-    margin-top:20px;
     background-color: $blueColor;
     color: #333;
     font-weight: bold;
     @include btn-menu;
     width: 80%;
+    
 }

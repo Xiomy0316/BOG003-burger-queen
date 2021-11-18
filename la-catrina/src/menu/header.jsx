@@ -34,7 +34,7 @@ const Header = ({ personName, onCustomerName, onTableSelect, tableSelect }) => {
                     <option value='Mesa5'>Mesa 5</option>
                 </select>
             </div>
-            <section>
+            <section className= 'message-input'>
                 <p id='messageInput'></p>
             </section>
             <div className='sect-buttons'>
