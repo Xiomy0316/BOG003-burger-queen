@@ -2,7 +2,7 @@ import { Fragment } from "react";
 
 const OrderSummary = ({ addOrder }) => {
 
-    console.log(addOrder, 'hola');
+    //console.log(addOrder, 'hola');
 
     /* Si el precio está definido retorna el precio multiplicado por cantidad en cada producto, si no retorna 0 */
     const priceProducts = addOrder.map(product => product.price !== undefined ? product.price * product.amount: 0 )

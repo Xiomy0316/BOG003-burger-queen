@@ -66,3 +66,24 @@ const AddProducts = ({ dataProduct, addOrder, setAddOrder }) => {
 }
 
 export default AddProducts;
+
+/* const removeToCart = (idDataProduct) => {
+    console.log(addOrder, 'addProducts')
+    const indexFound = addOrder.findIndex(item => item.id === idDataProduct)
+
+    //console.log('que soy', filtrado)
+    const orderFound = addOrder[indexFound];
+    if (orderFound.amount < 2) {
+        addOrder.filter(item => item.amount > 1);
+        setAddOrder(addOrder.splice(orderFound, 1));
+        console.log(orderFound, 'prueba');
+    }
+    if (indexFound !== -1) {
+        const leftArray = addOrder.slice(0, indexFound);
+        const rightArray = addOrder.slice(indexFound + 1, addOrder.length);
+        if (orderFound.amount >= 1) {
+            setAddOrder([...leftArray, { ...orderFound, amount: orderFound.amount - 1 }, ...rightArray])
+            console.log('resta', orderFound.amount);
+        }
+    }
+} */
