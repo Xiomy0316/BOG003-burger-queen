@@ -8,35 +8,16 @@ import './order.scss';
 const Order = () => {
 
   const [ordersData, setOrdersData] = useState([]);
-
-
   useEffect(() => {
     const getData = async () => {
       let orders = [];
+
       const querySnapshot = await getDocs(collection(db, 'pedidos'));
       querySnapshot.forEach((doc) => {
-        //console.log('doc data', doc.data());
-        // doc.data() is never undefined for query doc snapshots
         let { personName, tableSelect, ...updatedObjectProducts } = doc.data();
-        let newOrders = Object.values(updatedObjectProducts)
-        //console.log(updatedObjectProducts);
-        // for (const newOrders in updatedObjectProducts) {
-        //   updatedObjectProducts[newOrders].uid = doc.id
-        //   orders.push(updatedObjectProducts)
-        // }
-        //orders.push(updatedObjectProducts)
-        /* setOrdersData( updatedObjectProducts) */
-        newOrders.map(orderProducts => (
-          orderProducts.uid = doc.id
-          
-        ))
-        orders.push(...newOrders);
-        //console.log('updatedObjectProducts', newOrders);
+        orders.push(updatedObjectProducts);
       });
-      console.log(orders, 'newOrders');
-      setOrdersData(orders)
-
-
+      setOrdersData(orders);
     }
     getData()
   }, []);
