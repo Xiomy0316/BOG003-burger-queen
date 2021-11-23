@@ -33,18 +33,18 @@ const ProductCategory = ({ data }) => {
                     <section className='cards-food-container'>
                         {data.filter(product => product.category.includes('Comidas')).map(productByCategory => (
                             <div key={productByCategory.id} className='card-product'>
-                                {productByCategory.type.includes('breakfast') ?
+                                {/* productByCategory.type.includes('breakfast') ? */
                                     <AddProducts
                                         dataProduct={productByCategory}
                                         addOrder={addToOrder}
                                         setAddOrder={setAddToOrder}
                                         personName={person}
-                                    /> :
+                                    /> /* :
                                     <div>
                                         <img src={productByCategory.img} alt='' />
                                         <p>{productByCategory.name}</p>
                                         <p>$ {productByCategory.price}</p>
-                                    </div>
+                                    </div> */
                                 }
                             </div>
                         ))
@@ -78,7 +78,6 @@ const ProductCategory = ({ data }) => {
                         ))
                         }
                     </section>
-
                 </div >
                 <div className='order-summary'>
                     <OrderSummary

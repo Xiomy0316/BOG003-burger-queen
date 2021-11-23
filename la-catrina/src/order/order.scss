@@ -7,10 +7,33 @@ $blackColor: #151616;
     background-color: $blackColor;
     color: white;
 }
-.orders-container{
-    border: 2px solid rgb(147, 145, 248);
+.orders-container {
+    display: flex;
+    justify-content: space-evenly;
 }
-.order-list {
+.card-order {
     margin: 5px;
-    border: 1px solid rgb(245, 150, 7);
+    font-family: $font;
+    width: 45%;
+    border: 2px solid $blueColor;
+    border-radius: 10px;
+}
+.info-order {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 20px 10px 20px;
+}
+.product-order {
+    display: flex;
+    justify-content: space-around;
+    line-height: 25px;
+    p {
+        width: 30%;
+        text-align: center;
+    }
+}
+.total-price-order{
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 20px;
 }

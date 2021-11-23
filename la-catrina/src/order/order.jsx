@@ -14,8 +14,8 @@ const Order = () => {
 
       const querySnapshot = await getDocs(collection(db, 'pedidos'));
       querySnapshot.forEach((doc) => {
-        let { personName, tableSelect, ...updatedObjectProducts } = doc.data();
-        orders.push(updatedObjectProducts);
+        //let { personName, tableSelect, ...updatedObjectProducts } = doc.data();
+        orders.push(doc.data());
       });
       setOrdersData(orders);
     }

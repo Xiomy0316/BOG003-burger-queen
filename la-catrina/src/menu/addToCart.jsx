@@ -1,57 +1,69 @@
 import { Fragment, useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import db from '../firebase/firebaseConfig';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
 
 const AddToCart = ({ addOrder, setAddOrder, personName, tableSelect }) => {
 
-    const [disabledButton, setDisabledButton] = useState(true);
-
-    const messageInput = document.getElementById('messageInput');
-    const messageSaveOrder = document.getElementById('messageSaveOrder')
+    //const messageSaveOrder = document.getElementById('messageSaveOrder')
     console.log(addOrder, 'addToCart');
 
     const createOrder = () => {
-        //uploadOrder();
+        uploadOrder();
         console.log('guardado');
-        messageSaveOrder.innerText = `¡Pedido guardado!`;
-
+        savedOrderAlert()
+        //window.location.reload(false)
     }
-
 
     const uploadOrder = async () => {
         console.log('Se crea pedido');
         const docRef = await addDoc(collection(db, "pedidos"),
-            { ...addOrder, personName, tableSelect }
+            { ...addOrder, personName, tableSelect, state: 'Enviar a cocina' }
         )
         console.log("Document written with ID: ", docRef.id);
     }
 
     const validateInputName = () => {
         if (personName === '' || tableSelect === 'Mesa') {
-            messageInput.innerHTML = `Por favor rellene todos los campos`;
-            setDisabledButton(true)
+            Swal.fire({
+                title: '<strong>Por favor rellena todos los campos</strong>',
+                icon: 'info'
+            })
         } else if (addOrder.length === 0) {
-            alert('No has hecho un pedido')
-            setDisabledButton(true)
+            Swal.fire({
+                title: '<strong>Por favor agrega un producto</strong>',
+                icon: 'error'
+            })
         }
         else {
             createOrder()
         }
     }
-    
+
+    const savedOrderAlert = () => {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Pedido guardado',
+            showConfirmButton: false,
+            timer: 2500
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                window.location.reload(false)
+            }
+        })
+    }
 
     return (
         <Fragment>
             <section className='save-order'>
-                <p id='messageSaveOrder'></p>
-                <button disabled = {
-                    disabledButton === false ? true : false
-                }
-                    className='btn-save-order' 
+                <button
+                    className='btn-save-order'
                     onClick={() => {
                         validateInputName()
-                        setDisabledButton(false)}}
-                    >
+                    }}
+                >
                     Guardar Pedido
                 </button>
             </section>

@@ -1,36 +1,36 @@
 
 const ShowOrders = ({ ordersData, setOrdersData }) => {
+  console.log(ordersData, 'orderdata');
 
-  /* const dataProducts = Object.values(ordersData);*/
-  //console.log('OrdersData', ordersData
-  /* Si el precio está definido retorna el precio multiplicado por cantidad en cada producto, si no retorna 0 */
-
-
-  const priceProducts  = (oneOrder) => {
-    const multiply = Object.values(oneOrder).map(product => product.price * product.amount)
+  const priceProducts = (objectOrder) => {
+    /* Si el precio está definido retorna el precio multiplicado por cantidad en cada producto, si no retorna 0 */
+    const priceByQuantity = Object.values(objectOrder).map(product => product.price !== undefined ? product.price * product.amount : 0)
     /* Retorna la suma acumulada de prirceProducts para hallar el precio total del pedido */
-    const totalOrderPrice = multiply.reduce((price, sumPrice) => price + sumPrice, 0);
+    const totalOrderPrice = priceByQuantity.reduce((price, sumPrice) => price + sumPrice, 0);
     return totalOrderPrice;
-  } 
- 
+  }
 
   return (
     <section className='orders-container'>
-      {ordersData.map((element) => (
-        <div key={element.id} className='order-list'>
-          <p> {priceProducts(element)}</p>
-          {Object.values(element).map((item) => 
-          <div key={item.id}>
-          <p> {item.name}</p>
-          <p> {item.amount}</p>
-          <p> {item.price * item.amount}</p>
-          
-          </div>
+      {ordersData.filter(order => order.state !== 'Entregado').map((orderObject) => (
+        <div key={orderObject.id} className='card-order'>
+          <section className='info-order'>
+            <p>{orderObject.personName}</p>
+            <p>{orderObject.tableSelect}</p>
+          </section>
+          {Object.values(orderObject).map((productInOrder) =>
+            <div key={productInOrder.id} className='product-order'>
+              <p> {productInOrder.name}</p>
+              <p> {productInOrder.amount}</p>
+              <p> {productInOrder.price !== undefined ? `$ ` + (productInOrder.price * productInOrder.amount) : ''}</p>
+            </div>
           )}
+          <section className='total-price-order'>
+            <p> Total $ {priceProducts(orderObject)}</p>
+          </section>
         </div>
       ))
       }
-
     </section>
   )
 }
