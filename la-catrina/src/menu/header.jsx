@@ -35,10 +35,10 @@ const Header = ({ personName, onCustomerName, onTableSelect, tableSelect }) => {
                     <option value='Mesa5'>Mesa 5</option>
                 </select>
             </div>
-            <div className='sect-buttons'>
-                <a href='/menu' className='btn-principal' /* style={{background:colorBtn}} onClick={()=>{setColorBtn("gray")}} */>Principal</a>
+            {/* <div className='sect-buttons'>
+                <a href='/menu' className='btn-principal' /* style={{background:colorBtn}} onClick={()=>{setColorBtn("gray")}} >Principal</a>
                 <a href='/break-menu' className='btn-breakfast'>Desayunos</a>
-            </div>
+            </div> */}
         </Fragment>
     )
 }

@@ -3,10 +3,10 @@ import {
   BrowserRouter as Router, Switch, Route
 } from "react-router-dom";
 import Home from './home/home.jsx'
-import MenuLunch from './menu/menuLunch.jsx'
+import Menu from './menu/menu.jsx'
 import Order from './order/order.jsx'
 import Chef from './chef/chef.js'
-import MenuBreakfast from "./menu/menuBreakfast.jsx";
+// import MenuBreakfast from "./menu/menuBreakfast.jsx";
 
 //import { async } from "@firebase/util";
 
@@ -17,11 +17,11 @@ const App = () => {
       <div>
         <Switch>
           <Route path="/menu">
-            <MenuLunch />
+            <Menu />
           </Route>
-          <Route path="/break-menu">
+         {/*  <Route path="/break-menu">
             <MenuBreakfast />
-          </Route>
+          </Route> */}
           <Route path="/order">
             <Order />
           </Route>

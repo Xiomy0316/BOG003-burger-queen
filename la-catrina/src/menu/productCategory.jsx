@@ -4,10 +4,12 @@ import AddToCart from './addToCart';
 import Header from './header';
 import OrderSummary from './orderSummary';
 
-const ProductCategory = ({ data }) => {
+const ProductCategory = ({ data, setMenu }) => {
     const [addToOrder, setAddToOrder] = useState([]);
     const [person, setPerson] = useState('');
     const [table, setTable] = useState('Mesa');
+    const [colorBtnBlue, setColorBtnBlue] = useState('#04BFAD');
+    const [colorBtnGray, setColorBtnGray] = useState('#818181');
 
     const onCustomerName = (event) => {
         setPerson(event.target.value);
@@ -19,6 +21,16 @@ const ProductCategory = ({ data }) => {
         );
     }
 
+    const changeColorPrincipal = () => {
+        setColorBtnBlue('#04BFAD');
+        setColorBtnGray('#818181');
+    }
+    const changeColorBreakfast = () => {
+        setColorBtnBlue('#818181');
+        setColorBtnGray('#04BFAD');
+    }
+
+
     return (
         <Fragment>
             <Header
@@ -27,6 +39,23 @@ const ProductCategory = ({ data }) => {
                 tableSelect={table}
                 onTableSelect={onTableSelect}
             />
+            <section className='sect-buttons'>
+                <button className='btn-principal' style={{background:colorBtnBlue}} 
+                    onClick={() => {
+                        changeColorPrincipal()
+                        setMenu('lunch')
+                    }}>
+                    Principal
+                </button>
+
+                <button className='btn-breakfast' style={{background:colorBtnGray}} 
+                    onClick={() => {
+                        changeColorBreakfast()
+                        setMenu('breakfast')
+                    }}>
+                    Desayuno
+                </button>
+            </section>
             <section className='products-container'>
                 <div className='products'>
                     <h3>Comidas</h3>

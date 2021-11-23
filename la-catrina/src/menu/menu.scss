@@ -81,11 +81,9 @@ $blackColor: #151616;
 }
 
 @mixin btn-menu{
-    text-decoration: none;
     border-radius: 8px;
     height: 32px;
     width: 15%;
-    appearance: button;
     display: flex;
     justify-content: center;
     align-items: center;

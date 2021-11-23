@@ -1,47 +1,32 @@
-// import './menu.scss';
-// import ProductCategory from './productCategory';
-// import { Fragment, useEffect, useState } from 'react';
-// import axios from 'axios';
+import './menu.scss';
+import ProductCategory from './productCategory';
+import { Fragment, useEffect, useState } from 'react';
+import axios from 'axios';
 
-// const Menu = () => {
-//     const [data, setData] = useState([]);
-//     const [menu, setMenu] = useState('lunch');
-//     const filterMenu = data.filter(product => product.type.includes(menu));
+const Menu = () => {
+    const [data, setData] = useState([]);
+    const [menu, setMenu] = useState('lunch');
+    const filterMenu = data.filter(product => product.type.includes(menu));
 
-//     useEffect(() => {
-//         axios
-//             .get('data.json')
-//             .then(res => res.data)
-//             .then(res => {
-//                 setData(res.products)
-//             })
-//     }, [])
+    useEffect(() => {
+        axios
+            .get('data.json')
+            .then(res => res.data)
+            .then(res => {
+                setData(res.products)
+            })
+    }, [])
 
-//     return (
-//         <Fragment>
+    return (
+        <Fragment>
             
-//             <section className='sect-menu'>
-//             <section>
-//                 <button 
-//                 onClick={() => {
-//                     setMenu('lunch')
-//                 }}>
-//                 Principal
-//                 </button>
+            <section className='sect-menu'>
+                <div>
+                <ProductCategory data={filterMenu} setMenu={setMenu} />
+                </div>
+            </section>
+        </Fragment>
+    )
+};
 
-//                 <button 
-//                 onClick={() => {
-//                     setMenu('breakfast')
-//                 }}>
-//                 Desayuno
-//                 </button>
-//             </section>
-//                 <div>
-//                 <ProductCategory data={filterMenu} />
-//                 </div>
-//             </section>
-//         </Fragment>
-//     )
-// };
-
-// export default Menu;
+export default Menu;
