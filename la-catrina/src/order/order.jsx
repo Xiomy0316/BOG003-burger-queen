@@ -15,7 +15,9 @@ const Order = () => {
       const querySnapshot = await getDocs(collection(db, 'pedidos'));
       querySnapshot.forEach((doc) => {
         //let { personName, tableSelect, ...updatedObjectProducts } = doc.data();
-        orders.push(doc.data());
+        let data = doc.data();
+       data.id = doc.id;
+        orders.push(data);
       });
       setOrdersData(orders);
     }
@@ -30,7 +32,7 @@ const Order = () => {
         </header>
         <ShowOrders ordersData={ordersData} setOrdersData={setOrdersData} />
         {/* Estilos iguales al boton save order (dejar estos, cambiar nombres o copiar nuevos estilos en order.scss?) */}
-        <section className='save-order'>
+        <section className='go-menu'>
           <a className='btn-save-order' href='/menu'>
             Ir a Menú
           </a>

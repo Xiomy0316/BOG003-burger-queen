@@ -1,3 +1,6 @@
+import trash from '../img/trash.svg'
+import { doc, deleteDoc, onSnapshot } from "firebase/firestore";
+import db from '../firebase/firebaseConfig';
 
 const ShowOrders = ({ ordersData, setOrdersData }) => {
   console.log(ordersData, 'orderdata');
@@ -10,6 +13,13 @@ const ShowOrders = ({ ordersData, setOrdersData }) => {
     return totalOrderPrice;
   }
 
+  const deleteOrder = async (docId) => {
+    await onSnapshot(doc(db, "pedidos", docId), (doc) => {
+       //deleteDoc(doc(db, "pedidos", docId));
+      console.log('borrado');
+    })
+  }
+
   return (
     <section className='orders-container'>
       {ordersData.filter(order => order.state !== 'Entregado').map((orderObject) => (
@@ -17,6 +27,9 @@ const ShowOrders = ({ ordersData, setOrdersData }) => {
           <section className='info-order'>
             <p>{orderObject.personName}</p>
             <p>{orderObject.tableSelect}</p>
+          </section>
+          <section className='delete-order'>
+            <img src={trash} alt="trash" onClick={() => deleteOrder(orderObject.id)} />
           </section>
           {Object.values(orderObject).map((productInOrder) =>
             <div key={productInOrder.id} className='product-order'>
@@ -27,6 +40,9 @@ const ShowOrders = ({ ordersData, setOrdersData }) => {
           )}
           <section className='total-price-order'>
             <p> Total $ {priceProducts(orderObject)}</p>
+          </section>
+          <section className='btn-send-kitchen'>
+            <button>Enviar a cocina</button>
           </section>
         </div>
       ))

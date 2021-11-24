@@ -10,18 +10,29 @@ $blackColor: #151616;
 .orders-container {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 15px;
 }
+
 .card-order {
     margin: 5px;
     font-family: $font;
     width: 45%;
     border: 2px solid $blueColor;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 .info-order {
     display: flex;
     justify-content: space-between;
     margin: 10px 20px 10px 20px;
+}
+.delete-order{
+    display: flex;
+    justify-content: flex-end;
+    width: 96%;
 }
 .product-order {
     display: flex;
@@ -36,4 +47,33 @@ $blackColor: #151616;
     display: flex;
     justify-content: flex-end;
     padding: 5px 20px;
+}
+
+.btn-send-kitchen{
+    display: flex;
+    justify-content: center;
+    button {
+        font-family: $font;
+        background-color: $blackColor;
+        color: $blueColor;
+        border: 1px solid $blueColor;
+        border-radius: 8px;
+        width: 70%;
+        height: 30px;
+    }
+}
+
+.go-menu {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100px;
+    justify-content: space-evenly;
+    p {
+        font-family: $font;
+    }
 }
