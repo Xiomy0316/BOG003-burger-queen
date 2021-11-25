@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, onSnapshot, query } from "firebase/firestore";
 import db from '../firebase/firebaseConfig';
 import ShowOrders from "./showOrders";
 import logoWhite from '../img/burrito-blanco.png';
@@ -10,16 +10,16 @@ const Order = () => {
   const [ordersData, setOrdersData] = useState([]);
   useEffect(() => {
     const getData = async () => {
-      let orders = [];
-
-      const querySnapshot = await getDocs(collection(db, 'pedidos'));
-      querySnapshot.forEach((doc) => {
-        //let { personName, tableSelect, ...updatedObjectProducts } = doc.data();
-        let data = doc.data();
-       data.id = doc.id;
-        orders.push(data);
-      });
-      setOrdersData(orders);
+      onSnapshot(query(collection(db, 'pedidos')), (querySnapshot) => {
+        let orders = [];
+        /* const querySnapshot = await getDocs(collection(db, 'pedidos')); */
+        querySnapshot.forEach((doc) => {
+          let data = doc.data();
+          data.id = doc.id;
+          orders.push(data);
+        });
+        setOrdersData(orders);
+      })
     }
     getData()
   }, []);

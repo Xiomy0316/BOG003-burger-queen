@@ -14,31 +14,13 @@ const ShowOrders = ({ ordersData, setOrdersData }) => {
   }
 
   const deleteOrder = async (docId) => {
-
     await deleteDoc(doc(db, "pedidos", docId));
-   console.log('borrado');
+    /* const newOrdersData = ordersData.filter((order) => order.id !== docId )
+    setOrdersData(newOrdersData);
+   console.log('borrado'); */
 }
 
-  /* const deleteOrder = async (docId) => {
-    await onSnapshot(doc(db, "pedidos", docId), (document) => {
-      console.log(document, 'hola')
-     deleteDoc(document);
-      console.log('borrado');
-    })
-  } */
-
-/*   const deleteOrder = () => {
-    const adios = query(collection(db, "pedidos"));
-    const hola = onSnapshot(adios, (querySnapshot) => {
-      deleteDoc(querySnapshot);
-    });
-  } */
-
-  /*  const deleteOrder = (docId) => onSnapshot(doc(db, "pedidos", docId), (document) => {
-     deleteDoc(docId);
-   }); */
-
-  return (
+return (
     <section className='orders-container'>
       {ordersData.filter(order => order.state !== 'Entregado').map((orderObject) => (
         <div key={orderObject.id} className='card-order'>
@@ -70,25 +52,3 @@ const ShowOrders = ({ ordersData, setOrdersData }) => {
 }
 
 export default ShowOrders;
-
-/* {ordersData.filter(products => products.uid.includes('avfXccoKYrhS44uvbYFF', 'MT1W8EZ0se8y7Iip0GDJ')).map(orderProducts => (
-  <div key={orderProducts.id} className='div-order'>
-    <p>{orderProducts.name}</p>
-    <p>{orderProducts.price}</p>
-  </div>
-))} */
-
-
-/* {ordersData.map((orderProducts) => (
-  <div key={orderProducts.id} className='div-order'>
-    {ordersData.map(products => (
-       (orderProducts.uid === products.uid) ?
-        <div>
-          <p>{orderProducts.name}</p>
-          <p>{orderProducts.price}</p>
-        </div> :
-        ''
-     )
-    )}
-  </div>
-))} */
