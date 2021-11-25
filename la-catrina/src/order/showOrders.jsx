@@ -14,11 +14,29 @@ const ShowOrders = ({ ordersData, setOrdersData }) => {
   }
 
   const deleteOrder = async (docId) => {
-    await onSnapshot(doc(db, "pedidos", docId), (doc) => {
-       //deleteDoc(doc(db, "pedidos", docId));
+
+    await deleteDoc(doc(db, "pedidos", docId));
+   console.log('borrado');
+}
+
+  /* const deleteOrder = async (docId) => {
+    await onSnapshot(doc(db, "pedidos", docId), (document) => {
+      console.log(document, 'hola')
+     deleteDoc(document);
       console.log('borrado');
     })
-  }
+  } */
+
+/*   const deleteOrder = () => {
+    const adios = query(collection(db, "pedidos"));
+    const hola = onSnapshot(adios, (querySnapshot) => {
+      deleteDoc(querySnapshot);
+    });
+  } */
+
+  /*  const deleteOrder = (docId) => onSnapshot(doc(db, "pedidos", docId), (document) => {
+     deleteDoc(docId);
+   }); */
 
   return (
     <section className='orders-container'>

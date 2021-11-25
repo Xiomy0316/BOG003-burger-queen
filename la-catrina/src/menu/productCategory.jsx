@@ -117,7 +117,7 @@ const ProductCategory = ({ data, setMenu }) => {
             </section>
             <AddToCart
                 addOrder={addToOrder}
-                setAddOrder={setAddToOrder}
+                /* setAddOrder={setAddToOrder} */
                 personName={person}
                 tableSelect={table}
             />

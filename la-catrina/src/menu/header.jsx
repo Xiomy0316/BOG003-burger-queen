@@ -1,11 +1,10 @@
-import { Fragment, useState } from "react";
+import { Fragment} from "react";
 import logoWhite from '../img/burrito-blanco.png';
 import cart from '../img/carrito-de-compras.png';
 import logoPlus from '../img/mas.png';
 
 const Header = ({ personName, onCustomerName, onTableSelect, tableSelect }) => {
 
-    //const [colorBtn, setColorBtn] = useState('blue');
     return (
         <Fragment>
             <header >
@@ -35,10 +34,6 @@ const Header = ({ personName, onCustomerName, onTableSelect, tableSelect }) => {
                     <option value='Mesa5'>Mesa 5</option>
                 </select>
             </div>
-            {/* <div className='sect-buttons'>
-                <a href='/menu' className='btn-principal' /* style={{background:colorBtn}} onClick={()=>{setColorBtn("gray")}} >Principal</a>
-                <a href='/break-menu' className='btn-breakfast'>Desayunos</a>
-            </div> */}
         </Fragment>
     )
 }

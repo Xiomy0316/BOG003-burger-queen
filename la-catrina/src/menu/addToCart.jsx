@@ -1,19 +1,17 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import db from '../firebase/firebaseConfig';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 
-const AddToCart = ({ addOrder, setAddOrder, personName, tableSelect }) => {
+const AddToCart = ({ addOrder, personName, tableSelect }) => {
 
-    //const messageSaveOrder = document.getElementById('messageSaveOrder')
     console.log(addOrder, 'addToCart');
 
     const createOrder = () => {
         uploadOrder();
         console.log('guardado');
-        savedOrderAlert()
-        //window.location.reload(false)
+        savedOrderAlert() 
     }
 
     const uploadOrder = async () => {
