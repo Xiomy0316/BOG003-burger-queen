@@ -19,10 +19,12 @@ const Menu = () => {
 
     return (
         <Fragment>
-            
             <section className='sect-menu'>
                 <div>
-                <ProductCategory data={filterMenu} setMenu={setMenu} />
+                    <ProductCategory
+                        data={filterMenu}
+                        setMenu={setMenu}
+                    />
                 </div>
             </section>
         </Fragment>

@@ -3,16 +3,13 @@ import AddProducts from './addProducts';
 import AddToCart from './addToCart';
 import Header from './header';
 import OrderSummary from './orderSummary';
-import ModalMenu from "./modalMenu";
-import plusSign from '../img/signo-mas.png';
+import ButtonMenu from "./buttonMenu";
+import MenuBurritos from "./menuBurritos";
 
 const ProductCategory = ({ data, setMenu }) => {
     const [addToOrder, setAddToOrder] = useState([]);
     const [person, setPerson] = useState('');
     const [table, setTable] = useState('Mesa');
-    const [colorBtnBlue, setColorBtnBlue] = useState('#04BFAD');
-    const [colorBtnGray, setColorBtnGray] = useState('#818181');
-    const [openModal, setOpenModal] = useState(false);
 
     const onCustomerName = (event) => {
         setPerson(event.target.value);
@@ -24,15 +21,6 @@ const ProductCategory = ({ data, setMenu }) => {
         );
     }
 
-    const changeColorPrincipal = () => {
-        setColorBtnBlue('#04BFAD');
-        setColorBtnGray('#818181');
-    }
-    const changeColorBreakfast = () => {
-        setColorBtnBlue('#818181');
-        setColorBtnGray('#04BFAD');
-    }
-
     return (
         <Fragment>
             <Header
@@ -41,23 +29,7 @@ const ProductCategory = ({ data, setMenu }) => {
                 tableSelect={table}
                 onTableSelect={onTableSelect}
             />
-            <section className='sect-buttons'>
-                <button className='btn-principal' style={{ background: colorBtnBlue }}
-                    onClick={() => {
-                        changeColorPrincipal()
-                        setMenu('lunch')
-                    }}>
-                    Principal
-                </button>
-
-                <button className='btn-breakfast' style={{ background: colorBtnGray }}
-                    onClick={() => {
-                        changeColorBreakfast()
-                        setMenu('breakfast')
-                    }}>
-                    Desayuno
-                </button>
-            </section>
+            <ButtonMenu setMenu={setMenu} />
             <section className='products-container'>
                 <div className='products'>
                     <h3>Comidas</h3>
@@ -71,21 +43,10 @@ const ProductCategory = ({ data, setMenu }) => {
                                         setAddOrder={setAddToOrder}
                                         personName={person}
                                     /> :
-                                    <div>
-                                        <img src={productByCategory.img} alt='' />
-                                        <p>{productByCategory.name}</p>
-                                        <p>$ {productByCategory.price}</p>
-                                        <section className='plus-open-modal'>
-                                            <img src={plusSign} alt='agregar'
-                                                onClick={() => setOpenModal(true)}
-                                            />
-                                        </section>
-
-                                    </div>
+                                    <MenuBurritos productByCategory={productByCategory} />
                                 }
                             </div>
-                        ))
-                        }
+                        ))}
                     </section>
                     <h3>Bebidas</h3>
                     <section className='drinks'>
@@ -98,8 +59,7 @@ const ProductCategory = ({ data, setMenu }) => {
                                     personName={person}
                                 />
                             </div>
-                        ))
-                        }
+                        ))}
                     </section>
                     {/* Find funciona trayendo el primer elemento que cumpla con la condicion dada */}
                     {data.find(item => item.category === 'Acompañamientos') ? <h3>Acompañamientos</h3> : ''}
@@ -112,8 +72,7 @@ const ProductCategory = ({ data, setMenu }) => {
                                     setAddOrder={setAddToOrder}
                                 />
                             </div>
-                        ))
-                        }
+                        ))}
                     </section>
                 </div >
                 <div className='order-summary'>
@@ -123,14 +82,11 @@ const ProductCategory = ({ data, setMenu }) => {
                     />
                 </div>
             </section>
-            {openModal && < ModalMenu setOpenModal={setOpenModal} />}
             <AddToCart
                 addOrder={addToOrder}
-                /* setAddOrder={setAddToOrder} */
                 personName={person}
                 tableSelect={table}
             />
-
         </Fragment>)
 }
 

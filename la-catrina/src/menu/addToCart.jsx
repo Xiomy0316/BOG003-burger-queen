@@ -6,12 +6,10 @@ import 'sweetalert2/src/sweetalert2.scss'
 
 const AddToCart = ({ addOrder, personName, tableSelect }) => {
 
-    console.log(addOrder, 'addToCart');
-
     const createOrder = () => {
         uploadOrder();
         console.log('guardado');
-        savedOrderAlert() 
+        savedOrderAlert()
     }
 
     const uploadOrder = async () => {

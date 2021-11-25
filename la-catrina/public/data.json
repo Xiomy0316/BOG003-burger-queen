@@ -38,7 +38,16 @@
             "category": "Comidas",
             "name": "Burrito sencillo",
             "price": "10",
-            "img": "/image/burrito-sencillo.png"
+            "img": "/image/burrito-sencillo.png",
+            "protein": [
+                "Res",
+                "Pollo",
+                "Vegetariano"
+            ],
+            "additional": [
+                "Queso",
+                "Jalapeños"
+            ]
         },
         {
             "id": "06",
@@ -46,7 +55,16 @@
             "category": "Comidas",
             "name": "Burrito especial",
             "price": "12",
-            "img": "/image/burrito-especial.png"
+            "img": "/image/burrito-especial.png",
+            "protein": [
+                "Res",
+                "Pollo",
+                "Vegetariano"
+            ],
+            "additional": [
+                "Queso",
+                "Jalapeños"
+            ]
         },
         {
             "id": "07",

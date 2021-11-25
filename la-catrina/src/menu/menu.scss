@@ -11,12 +11,10 @@ $blackColor: #151616;
         justify-content: space-between;
     }
 }
-
 @mixin logo-menu {
     width: 68px;
     padding-top: 15px;
 }
-
 .logo-white {
     width: 80px;
     transform: rotate(30deg);
@@ -26,18 +24,15 @@ $blackColor: #151616;
 .logo-plus{
     @include logo-menu;
 }
-
 .go-order {
    @include logo-menu;
     padding-right: 18px;
 }
-
 .sect-input{
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
 }
-
 @mixin input-menu {
     background-color: $blackColor;
     color: white;
@@ -50,20 +45,16 @@ $blackColor: #151616;
         family: $font;
        }
 }
-
 .input-name{
     @include input-menu;
     width: 400px; 
     height: 2em;
-      
 }
-
 .num-table{
     @include input-menu;
     width: 120px;
     height: 35px;    
 }
-
 .message-input {
     display: flex;
     justify-content: center;
@@ -73,13 +64,11 @@ $blackColor: #151616;
     margin-top: 20px;
     color: rgba(255, 208, 0, 0.932);
 }
-
 .sect-buttons{
     display: flex;
     justify-content: space-evenly;
     margin-top: 20px;
 }
-
 @mixin btn-menu{
     border-radius: 8px;
     height: 32px;
@@ -89,14 +78,12 @@ $blackColor: #151616;
     align-items: center;
     font-family: $font;
     font-size: 15px;
-
 }
 .btn-principal {
     background-color: $blueColor;
     color: #333;
     @include btn-menu;
 }
-
 .btn-breakfast {
     background-color: #818181;
     color: #333;
@@ -122,14 +109,12 @@ $blackColor: #151616;
         width: 110px;
         align-self: center;
     }
-    
 }
 .cards-food-container {
     display: flex;
     margin: 15px;
     line-height: 25px;
 }
-
 .card-product {
     display: flex;
     flex-direction: column; 
@@ -141,7 +126,6 @@ $blackColor: #151616;
     width: 30%;
     text-align: center
 }
-
 .sect-btn-amount {
     display: flex;
     justify-content: space-around;
@@ -158,7 +142,6 @@ $blackColor: #151616;
     display: flex;
     margin: 15px;  
 }
-
 .plus-open-modal{
     display: flex;
     justify-content: flex-end;
@@ -167,6 +150,25 @@ $blackColor: #151616;
     img {
         width: 16px;
     }
+}
+.background-modal{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    backdrop-filter: blur(3px);
+    top: 0;
+    left: 0;
+}
+.container-modal{
+    width: 25%;
+    height: 200px;
+    background-color: $blackColor;
+    position: absolute;
+    border: 2px solid $blueColor;
+    border-radius: 8px;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 .order-summary{
     border: 2px solid $blueColor;
@@ -179,7 +181,6 @@ $blackColor: #151616;
         margin-top: 15px;
         margin-bottom: 15px;
     }
-
 }
 .product-summary{
     display: flex;
@@ -193,7 +194,6 @@ $blackColor: #151616;
     text-align: right;
     padding-right: 75px;
     color: $blueColor;
-
 }
 .save-order {
     width: 100%;
@@ -212,5 +212,4 @@ $blackColor: #151616;
     font-weight: bold;
     @include btn-menu;
     width: 80%;
-    
 }

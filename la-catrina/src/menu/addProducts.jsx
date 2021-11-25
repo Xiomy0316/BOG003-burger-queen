@@ -4,7 +4,7 @@ import minusSign from '../img/signo-menos.png';
 
 const AddProducts = ({ dataProduct, addOrder, setAddOrder }) => {
     const [count, setCount] = useState(0);
-    //console.log(addOrder, 'addProducts')
+    //console.log(dataProduct, 'addProducts')
 
     const addToCart = (idDataProduct) => {
         /* Devuelve el índice del primer elemento del array que cumpla con el id seleccionado */
@@ -37,7 +37,7 @@ const AddProducts = ({ dataProduct, addOrder, setAddOrder }) => {
             }
         }
     }
-    
+
     /* Disminuir cantidades en el contador */
     const subtractCount = () => {
         if (count > 0) {
@@ -66,24 +66,3 @@ const AddProducts = ({ dataProduct, addOrder, setAddOrder }) => {
 }
 
 export default AddProducts;
-
-/* const removeToCart = (idDataProduct) => {
-    console.log(addOrder, 'addProducts')
-    const indexFound = addOrder.findIndex(item => item.id === idDataProduct)
-
-    //console.log('que soy', filtrado)
-    const orderFound = addOrder[indexFound];
-    if (orderFound.amount < 2) {
-        addOrder.filter(item => item.amount > 1);
-        setAddOrder(addOrder.splice(orderFound, 1));
-        console.log(orderFound, 'prueba');
-    }
-    if (indexFound !== -1) {
-        const leftArray = addOrder.slice(0, indexFound);
-        const rightArray = addOrder.slice(indexFound + 1, addOrder.length);
-        if (orderFound.amount >= 1) {
-            setAddOrder([...leftArray, { ...orderFound, amount: orderFound.amount - 1 }, ...rightArray])
-            console.log('resta', orderFound.amount);
-        }
-    }
-} */
