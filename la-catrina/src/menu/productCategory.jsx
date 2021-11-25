@@ -3,6 +3,8 @@ import AddProducts from './addProducts';
 import AddToCart from './addToCart';
 import Header from './header';
 import OrderSummary from './orderSummary';
+import ModalMenu from "./modalMenu";
+import plusSign from '../img/signo-mas.png';
 
 const ProductCategory = ({ data, setMenu }) => {
     const [addToOrder, setAddToOrder] = useState([]);
@@ -10,6 +12,7 @@ const ProductCategory = ({ data, setMenu }) => {
     const [table, setTable] = useState('Mesa');
     const [colorBtnBlue, setColorBtnBlue] = useState('#04BFAD');
     const [colorBtnGray, setColorBtnGray] = useState('#818181');
+    const [openModal, setOpenModal] = useState(false);
 
     const onCustomerName = (event) => {
         setPerson(event.target.value);
@@ -30,7 +33,6 @@ const ProductCategory = ({ data, setMenu }) => {
         setColorBtnGray('#04BFAD');
     }
 
-
     return (
         <Fragment>
             <Header
@@ -40,7 +42,7 @@ const ProductCategory = ({ data, setMenu }) => {
                 onTableSelect={onTableSelect}
             />
             <section className='sect-buttons'>
-                <button className='btn-principal' style={{background:colorBtnBlue}} 
+                <button className='btn-principal' style={{ background: colorBtnBlue }}
                     onClick={() => {
                         changeColorPrincipal()
                         setMenu('lunch')
@@ -48,7 +50,7 @@ const ProductCategory = ({ data, setMenu }) => {
                     Principal
                 </button>
 
-                <button className='btn-breakfast' style={{background:colorBtnGray}} 
+                <button className='btn-breakfast' style={{ background: colorBtnGray }}
                     onClick={() => {
                         changeColorBreakfast()
                         setMenu('breakfast')
@@ -62,18 +64,24 @@ const ProductCategory = ({ data, setMenu }) => {
                     <section className='cards-food-container'>
                         {data.filter(product => product.category.includes('Comidas')).map(productByCategory => (
                             <div key={productByCategory.id} className='card-product'>
-                                {/* productByCategory.type.includes('breakfast') ? */
+                                {productByCategory.type.includes('breakfast') ?
                                     <AddProducts
                                         dataProduct={productByCategory}
                                         addOrder={addToOrder}
                                         setAddOrder={setAddToOrder}
                                         personName={person}
-                                    /> /* :
+                                    /> :
                                     <div>
                                         <img src={productByCategory.img} alt='' />
                                         <p>{productByCategory.name}</p>
                                         <p>$ {productByCategory.price}</p>
-                                    </div> */
+                                        <section className='plus-open-modal'>
+                                            <img src={plusSign} alt='agregar'
+                                                onClick={() => setOpenModal(true)}
+                                            />
+                                        </section>
+
+                                    </div>
                                 }
                             </div>
                         ))
@@ -115,12 +123,14 @@ const ProductCategory = ({ data, setMenu }) => {
                     />
                 </div>
             </section>
+            {openModal && < ModalMenu setOpenModal={setOpenModal} />}
             <AddToCart
                 addOrder={addToOrder}
                 /* setAddOrder={setAddToOrder} */
                 personName={person}
                 tableSelect={table}
             />
+
         </Fragment>)
 }
 

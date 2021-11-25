@@ -1,5 +1,5 @@
 import trash from '../img/trash.svg'
-import { doc, deleteDoc, onSnapshot } from "firebase/firestore";
+import { doc, deleteDoc } from "firebase/firestore";
 import db from '../firebase/firebaseConfig';
 
 const ShowOrders = ({ ordersData, setOrdersData }) => {

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { collection, getDocs, onSnapshot, query } from "firebase/firestore";
+import { collection, onSnapshot, query } from "firebase/firestore";
 import db from '../firebase/firebaseConfig';
 import ShowOrders from "./showOrders";
 import logoWhite from '../img/burrito-blanco.png';

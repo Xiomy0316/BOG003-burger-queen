@@ -158,6 +158,16 @@ $blackColor: #151616;
     display: flex;
     margin: 15px;  
 }
+
+.plus-open-modal{
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    padding-bottom: 10px;
+    img {
+        width: 16px;
+    }
+}
 .order-summary{
     border: 2px solid $blueColor;
     border-radius: 10px;
