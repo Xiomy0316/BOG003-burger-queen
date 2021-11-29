@@ -1,21 +1,35 @@
 import { Fragment, useState } from "react";
 
 const ModalMenu = ({ setOpenModal, burritoProduct, addOrder, setAddOrder }) => {
-    const [typeOfProtein, setTypeOfProtein] = useState('');
+    const [typeOfProtein, setTypeOfProtein] = useState('res');
     const [productAditionals, setProductAditionals] = useState([]);
+    console.log(addOrder, 'addorder');
 
     const handleValueProtein = e => {
         setTypeOfProtein(e.target.value)
+        //setAddOrder([...addOrder, { ...burritoProduct, protein: e.target.value }])
+
+        console.log(typeOfProtein);
     }
 
     const handleValueAditionals = e => {
-        const searchPosition = productAditionals.indexOf(e.target.value)
-        if(productAditionals.includes(e.target.value)){
-            setProductAditionals( productAditionals.splice(searchPosition, 1))
-        } else {
+        
+        //console.log(searchPosition, 'buscador');
+        if (productAditionals.length === 0){
             setProductAditionals(productAditionals.push(e.target.value))
+        } else {
+            const searchPosition = productAditionals.indexOf(e.target.value)
+            setProductAditionals( productAditionals.splice(searchPosition))
         }
+        //setProductAditionals(e.target.value)
+        /*  if(productAditionals.includes(e.target.value)){
+             setProductAditionals( productAditionals.splice(searchPosition))
+         } else {
+             setProductAditionals(productAditionals.push(e.target.value))
+         }  */
     }
+
+    const sendBurritoToObject = () => setAddOrder([...addOrder, { ...burritoProduct, protein: typeOfProtein , additional: productAditionals}])
 
 
     return (
@@ -73,10 +87,16 @@ const ModalMenu = ({ setOpenModal, burritoProduct, addOrder, setAddOrder }) => {
                                 {burritoProduct.additional[1].name}
                                 $ {burritoProduct.additional[1].price}</li>
                         </ul>
-                        <section className="btn-add-burrito">
-                            <button type="submit">Agregar</button>
-                        </section>
                     </form>
+                    <section className="btn-add-burrito">
+                        <button
+                            onClick={() => {
+                                setOpenModal(false);
+                                sendBurritoToObject()
+                            }}>
+                            Agregar
+                        </button>
+                    </section>
                 </section>
             </div>
         </Fragment>

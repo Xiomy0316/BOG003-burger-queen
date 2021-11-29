@@ -10,7 +10,7 @@ const ProductCategory = ({ data, setMenu }) => {
     const [addToOrder, setAddToOrder] = useState([]);
     const [person, setPerson] = useState('');
     const [table, setTable] = useState('Mesa');
-
+    console.log(addToOrder);
     const onCustomerName = (event) => {
         setPerson(event.target.value);
     }

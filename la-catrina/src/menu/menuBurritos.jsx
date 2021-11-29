@@ -4,7 +4,6 @@ import ModalMenu from "./modalMenu";
 
 const MenuBurritos = ({ productByCategory, addOrder, setAddOrder }) => {
     const [openModal, setOpenModal] = useState(false);
-    console.log(productByCategory);
 
     return (
         <Fragment>
