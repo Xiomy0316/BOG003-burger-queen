@@ -161,7 +161,7 @@ $blackColor: #151616;
 }
 .container-modal{
     width: 25%;
-    height: 200px;
+    height: 300px;
     background-color: $blackColor;
     position: absolute;
     border: 2px solid $blueColor;
@@ -169,6 +169,20 @@ $blackColor: #151616;
     top: 45%;
     left: 50%;
     transform: translate(-50%,-50%);
+    ul{
+        list-style: none;
+    }
+}
+.btn-add-burrito {
+    button {
+        font-family: $font;
+        background-color: $blackColor;
+        color: $blueColor;
+        border: 1px solid $blueColor;
+        border-radius: 8px;
+        width: 70%;
+        height: 30px;
+    }
 }
 .order-summary{
     border: 2px solid $blueColor;

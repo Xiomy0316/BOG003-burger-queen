@@ -45,8 +45,14 @@
                 "Vegetariano"
             ],
             "additional": [
-                "Queso",
-                "Jalapeños"
+                {
+                    "name": "Queso",
+                    "price": "1"
+                },
+                {
+                    "name": "Jalapeños",
+                    "price": "1"
+                }
             ]
         },
         {
@@ -62,8 +68,14 @@
                 "Vegetariano"
             ],
             "additional": [
-                "Queso",
-                "Jalapeños"
+                {
+                    "name": "Queso",
+                    "price": "1"
+                },
+                {
+                    "name": "Jalapeños",
+                    "price": "1"
+                }
             ]
         },
         {

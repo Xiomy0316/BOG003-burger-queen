@@ -43,7 +43,7 @@ const ProductCategory = ({ data, setMenu }) => {
                                         setAddOrder={setAddToOrder}
                                         personName={person}
                                     /> :
-                                    <MenuBurritos productByCategory={productByCategory} />
+                                    <MenuBurritos productByCategory={productByCategory} addOrder={addToOrder} setAddOrder={setAddToOrder}/>
                                 }
                             </div>
                         ))}

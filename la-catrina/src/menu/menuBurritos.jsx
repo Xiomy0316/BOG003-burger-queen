@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import plusSign from '../img/signo-mas.png';
 import ModalMenu from "./modalMenu";
 
-const MenuBurritos = ({ productByCategory }) => {
+const MenuBurritos = ({ productByCategory, addOrder, setAddOrder }) => {
     const [openModal, setOpenModal] = useState(false);
     console.log(productByCategory);
 
@@ -16,7 +16,7 @@ const MenuBurritos = ({ productByCategory }) => {
                     <img src={plusSign} alt='agregar'
                         onClick={() => setOpenModal(true)}
                     />
-                    {openModal && < ModalMenu setOpenModal={setOpenModal} idProduct={productByCategory} />}
+                    {openModal && < ModalMenu setOpenModal={setOpenModal} burritoProduct={productByCategory} addOrder={addOrder} setAddOrder={setAddOrder} />}
                 </section>
             </div>
         </Fragment>
