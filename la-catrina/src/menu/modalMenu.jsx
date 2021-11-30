@@ -3,40 +3,32 @@ import { Fragment, useState } from "react";
 const ModalMenu = ({ setOpenModal, burritoProduct, addOrder, setAddOrder }) => {
     const [typeOfProtein, setTypeOfProtein] = useState('res');
     const [productAditionals, setProductAditionals] = useState([]);
-    console.log(addOrder, 'addorder');
+    console.log(addOrder, 'afuera');
 
     const handleValueProtein = e => {
         setTypeOfProtein(e.target.value)
-        //setAddOrder([...addOrder, { ...burritoProduct, protein: e.target.value }])
-
-        console.log(typeOfProtein);
     }
 
     const handleValueAditionals = e => {
-        
-        //console.log(searchPosition, 'buscador');
-        if (productAditionals.length === 0){
-            setProductAditionals(productAditionals.push(e.target.value))
+        const searchPosition = productAditionals.findIndex(item => item === e.target.value)
+        console.log('Linea19', productAditionals);
+        let newProduct = productAditionals;
+        if (productAditionals.includes(e.target.value)) {
+            newProduct.splice(searchPosition, 1)
+            setProductAditionals(newProduct)
+            console.log('if', e.target.value, productAditionals);
         } else {
-            const searchPosition = productAditionals.indexOf(e.target.value)
-            setProductAditionals( productAditionals.splice(searchPosition))
+            setProductAditionals(productAditionals => [...productAditionals, { name: e.target.value, price: 1 }])
+            console.log('else', e.target.value, productAditionals);
         }
-        //setProductAditionals(e.target.value)
-        /*  if(productAditionals.includes(e.target.value)){
-             setProductAditionals( productAditionals.splice(searchPosition))
-         } else {
-             setProductAditionals(productAditionals.push(e.target.value))
-         }  */
     }
 
-    const sendBurritoToObject = () => setAddOrder([...addOrder, { ...burritoProduct, protein: typeOfProtein , additional: productAditionals}])
-
+    const sendBurritoToObject = () => setAddOrder([...addOrder, { ...burritoProduct, protein: typeOfProtein, additional: productAditionals, amount: 1}])
 
     return (
         <Fragment>
             <div className='background-modal'>
                 <section className='container-modal'>
-                    {/* <AddProducts dataProduct={burritoProduct} addOrder={addOrder} setAddOrder={setAddOrder}/> */}
                     <p>{burritoProduct.name}</p>
                     <button onClick={() => setOpenModal(false)}>
                         X
