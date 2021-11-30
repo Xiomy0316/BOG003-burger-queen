@@ -190,6 +190,7 @@ $blackColor: #151616;
     width: 40%;
     margin-top:20px;
     line-height: 25px;
+    padding-left: 15px;
     h3 {
         text-align: center;
         margin-top: 15px;
@@ -200,8 +201,19 @@ $blackColor: #151616;
     display: flex;
     justify-content: center;
     p {
-        width: 30%;
-        text-align: center;
+        width: 32%;
+        text-align: left;
+        margin: 0 0 10px 12px;
+    }
+}
+.additional-burritos{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    p {
+        width: 22%;
+        text-align: left;
+        margin-left: 23px;
     }
 }
 .total-order-price {
