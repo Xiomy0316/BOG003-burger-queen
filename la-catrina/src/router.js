@@ -5,7 +5,7 @@ import {
 import Home from './home/home.jsx'
 import Menu from './menu/menu.jsx'
 import Order from './order/order.jsx'
-import Chef from './chef/chef.js'
+import Chef from './chef/chef.jsx'
 // import MenuBreakfast from "./menu/menuBreakfast.jsx";
 
 //import { async } from "@firebase/util";

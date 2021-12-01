@@ -1,4 +1,4 @@
-
+import OrderProgress from '../order/orderProgress';
 /* import { doc, deleteDoc } from "firebase/firestore";
 import db from '../firebase/firebaseConfig';
  */
@@ -35,6 +35,7 @@ const ShowOrders = ({ ordersData, setOrdersData }) => {
     <section className='orders-container'>
       {ordersData.filter(order => order.state !== 'Entregado').map((orderObject) => (
         <div key={orderObject.id} className='card-order'>
+          <OrderProgress orderObject={orderObject.state} />
           <section className='info-order'>
             <p>{orderObject.personName}</p>
             <p>{orderObject.tableSelect}</p>
