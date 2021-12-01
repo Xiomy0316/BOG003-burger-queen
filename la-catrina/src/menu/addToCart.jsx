@@ -60,7 +60,7 @@ const AddToCart = ({ addOrder, personName, tableSelect }) => {
                         validateInputName()
                     }}
                 >
-                    Guardar Pedido
+                    Enviar a cocina
                 </button>
             </section>
         </Fragment>

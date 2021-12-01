@@ -1,7 +1,9 @@
 import { Fragment } from "react";
+import trash from '../img/trash.svg'
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
 
-const OrderSummary = ({ addOrder }) => {
-
+const OrderSummary = ({ addOrder, setAddOrder }) => {
 
     const priceProducts = addOrder.map(product => {
         let totalPriceAdditional;
@@ -20,10 +22,28 @@ const OrderSummary = ({ addOrder }) => {
     /* Retorna la suma acumulada de prirceProducts para hallar el precio total del pedido */
     const totalOrderPrice = priceProducts.reduce((price, sumPrice) => price + sumPrice, 0);
 
+    const deleteOrder = () => {
+        Swal.fire({
+            title: '¿Estás seguro de eliminar el pedido?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Eliminar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                setAddOrder([]);
+            }
+        })
+    }
+
     return (
         <Fragment>
             <section>
                 <h3>Resumen de pedido</h3>
+                <section className='delete-order'>
+                    <img src={trash} alt="trash" onClick={deleteOrder} />
+                </section>
                 {addOrder.map(product =>
                     <div key={product.id} >
                         <section className='product-summary'>
@@ -32,7 +52,7 @@ const OrderSummary = ({ addOrder }) => {
                             <p>{product.amount}</p>
                             <p>$ {product.price !== undefined ? product.price * product.amount : ''}</p>
                         </section>
-                        
+
                         {product.category === 'Comidas' && product.type === 'lunch' ? product.additional.map(additional =>
                             <div className='additional-burritos'>
                                 <p>•{additional.name}</p>
