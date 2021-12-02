@@ -24,15 +24,40 @@ $blackColor: #151616;
     flex-direction: column;
     justify-content: space-evenly;
 }
+.container-progress-bar {
+    display: flex;
+    align-items: center;
+    color: $blueColor;
+    font-size: 18px;
+    margin: 5px 0 0 5px;
+    img {
+        width: 64px;
+        margin-right: 10px;
+    }
+}
+.line-orders-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+.line-orders {
+    width: 80%;
+    height: 2px;
+    background-color: #818181;
+}
 .info-order {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 10px 20px 10px 20px;
+    font-weight: bold;
+    
 }
-.delete-order{
+
+.container-product-order {
     display: flex;
-    justify-content: flex-end;
-    width: 96%;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
 }
 .product-order {
     display: flex;
@@ -40,7 +65,21 @@ $blackColor: #151616;
     line-height: 25px;
     p {
         width: 30%;
-        text-align: center;
+        //text-align: left;
+    }
+}
+.num-order {
+    text-align: center;
+}
+.additionals-order{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    p {
+        width: 25%;
+        padding-left: 15px;
+        //text-align: left;
+        //margin-left: 23px;
     }
 }
 .total-price-order{
@@ -49,9 +88,10 @@ $blackColor: #151616;
     padding: 5px 20px;
 }
 
-.btn-send-kitchen{
+.btn-deliver{
     display: flex;
     justify-content: center;
+    margin: 5px 0 15px 0;
     button {
         font-family: $font;
         background-color: $blackColor;

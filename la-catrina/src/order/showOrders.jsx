@@ -41,20 +41,25 @@ const ShowOrders = ({ ordersData }) => {
             <p>{orderObject.personName}</p>
             <p>{orderObject.tableSelect}</p>
           </section>
+          <section className='line-orders-section'>
+            <canvas className='line-orders'> </canvas>
+          </section>
           {Object.values(orderObject).map((productInOrder) =>
-            <div key={productInOrder.id} className='product-order'>
-              <p> {productInOrder.name}</p>
-              <p> {productInOrder.protein}</p>
-              <p> {productInOrder.amount}</p>
-              <p> {productInOrder.price !== undefined ? `$ ` + (productInOrder.price * productInOrder.amount) : ''}</p>
+            <div className='container-product-order'>
+              <div key={productInOrder.id} className='product-order'>
+                <p> {productInOrder.name}</p>
+                <p className='num-order'> {productInOrder.protein}</p>
+                <p className='num-order'> {productInOrder.amount}</p>
+                <p className='num-order'> {productInOrder.price !== undefined ? `$ ` + (productInOrder.price * productInOrder.amount) : ''}</p>
+              </div>
+
               {productInOrder.category === 'Comidas' && productInOrder.type === 'lunch' ? productInOrder.additional.map(additional =>
-                <div className='additional-burritos'>
+                <div className='additionals-order'>
                   <p>•{additional.name}</p>
-                  <p>$ {additional.price}</p>
+                  <p className='num-order'>$ {additional.price}</p>
                 </div>)
                 : ''}
             </div>
-
           )}
           <section className='total-price-order'>
             <p> Total $ {priceProducts(orderObject)}</p>

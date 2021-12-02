@@ -2,6 +2,7 @@ import { Fragment, useState, useEffect } from 'react';
 import { collection, onSnapshot, query, updateDoc, doc, orderBy } from "firebase/firestore";
 import db from '../firebase/firebaseConfig';
 import './chef.scss';
+//import Timer from './timer';
 
 const Chef = () => {
 
@@ -36,12 +37,42 @@ const Chef = () => {
     }
   }
 
+
+  const [diff, setDiff] = useState(null);
+  const [initial, setInitial] = useState(null);
+
+  const time = () => {
+    setDiff(new Date(+new Date() - initial))
+  };
+
+  const startTime = () => { setInitial(+new Date()) }
+
+  useEffect(() => {
+    if (initial) {
+      requestAnimationFrame(time);
+    }
+  }, [initial]);
+
+  useEffect(() => {
+    if (diff) {
+      requestAnimationFrame(time);
+    }
+  }, [diff]);
+  //console.log(stateOrder.stateOrder, 'estado orden');
+
+
+
+
   return (
     <Fragment>
       <section className='orders-chef'>
         <a href='/'>Ir a home</a>
         {ordersData.filter(order => (order.state !== 'Entregado' && order.state !== 'Para entregar')).map((orderObject) => (
           <div key={orderObject.id} className='card-order'>
+            <div className='timer' >
+              <h3>{timeFormat(diff)} </h3>
+            </div>
+            {/* <div><Timer stateOrder={orderObject.state} /> </div> */}
             <section className='info-order'>
               <p>{orderObject.personName}</p>
               <p>{orderObject.tableSelect}</p>
@@ -60,7 +91,7 @@ const Chef = () => {
             )}
             <section className='btn-prepare'>
               {orderObject.state === 'Enviar a cocina'
-                ? <button onClick={() => updateStateOrder(orderObject)}>
+                ? <button onClick={() => { updateStateOrder(orderObject); startTime() }}>
                   Preparar
                 </button> : ''}
               {orderObject.state === 'En preparación'
@@ -76,6 +107,20 @@ const Chef = () => {
       </section>
     </Fragment>
   )
-};
+}
+
+const timeFormat = (date) => {
+  if (!date) return '00:00';
+
+  let mm = date.getUTCMinutes();
+  let ss = date.getSeconds();
+
+  mm = mm < 10 ? '0' + mm : mm;
+  ss = ss < 10 ? '0' + ss : ss;
+
+  return `${mm}:${ss}`;
+
+}
+
 
 export default Chef;

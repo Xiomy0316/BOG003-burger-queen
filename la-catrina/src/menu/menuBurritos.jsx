@@ -27,6 +27,9 @@ const MenuBurritos = ({ productByCategory, addOrder, setAddOrder }) => {
                 <p>{productByCategory.name}</p>
                 <p>$ {productByCategory.price}</p>
                 <section className='plus-open-modal'>
+                    <img src={minusSign} alt='minus' onClick={() => {
+                        removeToCart(productByCategory.id)
+                    }}></img>
                     <img src={plusSign} alt='agregar'
                         onClick={() => setOpenModal(true)}
                     />
@@ -36,11 +39,6 @@ const MenuBurritos = ({ productByCategory, addOrder, setAddOrder }) => {
                         addOrder={addOrder}
                         setAddOrder={setAddOrder}
                     />}
-                </section>
-                <section className='sect-btn-amount'>
-                    <img src={minusSign} alt='minus' onClick={() => {
-                        removeToCart(productByCategory.id)
-                    }}></img>
                 </section>
             </div>
         </Fragment>
