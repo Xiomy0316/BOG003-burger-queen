@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-
+import x from '../img/x.png'
 const ModalMenu = ({ setOpenModal, burritoProduct, addOrder, setAddOrder }) => {
     const [typeOfProtein, setTypeOfProtein] = useState('Res');
     const [productAditionals, setProductAditionals] = useState([]);
@@ -29,12 +29,12 @@ const ModalMenu = ({ setOpenModal, burritoProduct, addOrder, setAddOrder }) => {
         <Fragment>
             <div className='background-modal'>
                 <section className='container-modal'>
+                    <section className='close-modal'>
+                        <img src={x} alt='img-x' onClick={() => setOpenModal(false)} />
+                    </section>
                     <p>{burritoProduct.name}</p>
-                    <button onClick={() => setOpenModal(false)}>
-                        X
-                    </button>
                     <form>
-                        <ul>Proteína:
+                        <ul className='sect-protein-additionals'> Proteína:
                             <li><input
                                 id="protein1"
                                 value="Res"
@@ -63,21 +63,35 @@ const ModalMenu = ({ setOpenModal, burritoProduct, addOrder, setAddOrder }) => {
                                     {burritoProduct.protein[2]}
                                 </label></li>
                         </ul>
-                        <ul>Adicionales:
+                        Adicionales:
+                        <ul className='sect-additionals'>
                             <li><input
                                 type="checkbox"
                                 id="aditional1"
                                 value="Queso"
                                 onChange={handleValueAditionals} />
-                                {burritoProduct.additional[0].name}
-                                $ {burritoProduct.additional[0].price}</li>
+                                
+                                <p>
+                                    {burritoProduct.additional[0].name}
+                                </p>
+                                <p>
+                                    $ {burritoProduct.additional[0].price}
+                                </p>
+                                </li>
                             <li><input
                                 type="checkbox"
                                 id="aditional2"
                                 value="Jalapeños"
                                 onChange={handleValueAditionals} />
-                                {burritoProduct.additional[1].name}
-                                $ {burritoProduct.additional[1].price}</li>
+                                 
+                                <p>
+                                    {burritoProduct.additional[1].name}
+                                </p>
+                                <p>
+                                    $ {burritoProduct.additional[1].price}
+                                </p>
+                                </li>
+                           
                         </ul>
                     </form>
                     <section className="btn-add-burrito">

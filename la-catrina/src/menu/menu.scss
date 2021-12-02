@@ -161,7 +161,7 @@ $blackColor: #151616;
 }
 .container-modal{
     width: 25%;
-    height: 300px;
+    height: 325px;
     background-color: $blackColor;
     position: absolute;
     border: 2px solid $blueColor;
@@ -173,7 +173,37 @@ $blackColor: #151616;
         list-style: none;
     }
 }
+.close-modal{
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 15px 0 0 ;
+}
+form {
+    text-align: start;
+    margin-left: 10px;
+}
+.sect-protein-additionals{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    input {
+        margin-right: 8px;
+
+    }
+}
+.sect-additionals{
+    display: flex;
+    flex-direction: column;
+
+    li {
+        display: flex;
+        align-items: center;
+    }
+}
 .btn-add-burrito {
+    margin-top : 15px;
     button {
         font-family: $font;
         background-color: $blackColor;
