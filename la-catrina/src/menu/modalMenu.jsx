@@ -1,9 +1,10 @@
 import { Fragment, useState } from "react";
 import x from '../img/x.png'
+
 const ModalMenu = ({ setOpenModal, burritoProduct, addOrder, setAddOrder }) => {
+
     const [typeOfProtein, setTypeOfProtein] = useState('Res');
     const [productAditionals, setProductAditionals] = useState([]);
-    // console.log(productAditionals, 'afuera');
 
     const handleValueProtein = e => {
         setTypeOfProtein(e.target.value)
@@ -16,10 +17,8 @@ const ModalMenu = ({ setOpenModal, burritoProduct, addOrder, setAddOrder }) => {
         if (searchPosition !== -1) {
             newProduct.splice(searchPosition, 1)
             setProductAditionals(newProduct)
-            //console.log('if', e.target.value, productAditionals);
         } else {
             setProductAditionals(productAditionals => [...productAditionals, { name: e.target.value, price: 1 }])
-            //console.log('else', e.target.value, productAditionals);
         }
     }
 
@@ -70,28 +69,28 @@ const ModalMenu = ({ setOpenModal, burritoProduct, addOrder, setAddOrder }) => {
                                 id="aditional1"
                                 value="Queso"
                                 onChange={handleValueAditionals} />
-                                
+
                                 <p>
                                     {burritoProduct.additional[0].name}
                                 </p>
                                 <p>
                                     $ {burritoProduct.additional[0].price}
                                 </p>
-                                </li>
+                            </li>
                             <li><input
                                 type="checkbox"
                                 id="aditional2"
                                 value="Jalapeños"
                                 onChange={handleValueAditionals} />
-                                 
+
                                 <p>
                                     {burritoProduct.additional[1].name}
                                 </p>
                                 <p>
                                     $ {burritoProduct.additional[1].price}
                                 </p>
-                                </li>
-                           
+                            </li>
+
                         </ul>
                     </form>
                     <section className="btn-add-burrito">

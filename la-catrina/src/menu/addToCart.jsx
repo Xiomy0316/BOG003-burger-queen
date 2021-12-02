@@ -6,18 +6,28 @@ import 'sweetalert2/src/sweetalert2.scss'
 
 const AddToCart = ({ addOrder, personName, tableSelect }) => {
 
-    const createOrder = () => {
-        uploadOrder();
-        console.log('guardado');
-        savedOrderAlert()
+    const uploadOrder = async () => {
+       await addDoc(collection(db, "pedidos"),
+            { ...addOrder, personName, tableSelect, state: 'Enviar a cocina', date: new Date() }
+        )
+    }
+    const savedOrderAlert = () => {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Pedido enviado',
+            showConfirmButton: false,
+            timer: 2500
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                window.location.reload(false)
+            }
+        })
     }
 
-    const uploadOrder = async () => {
-        console.log('Se crea pedido');
-        const docRef = await addDoc(collection(db, "pedidos"),
-            { ...addOrder, personName, tableSelect, state: 'Enviar a cocina' }
-        )
-        console.log("Document written with ID: ", docRef.id);
+    const createOrder = () => {
+        uploadOrder();
+        savedOrderAlert()
     }
 
     const validateInputName = () => {
@@ -35,20 +45,6 @@ const AddToCart = ({ addOrder, personName, tableSelect }) => {
         else {
             createOrder()
         }
-    }
-
-    const savedOrderAlert = () => {
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Pedido guardado',
-            showConfirmButton: false,
-            timer: 2500
-        }).then((result) => {
-            if (result.dismiss === Swal.DismissReason.timer) {
-                window.location.reload(false)
-            }
-        })
     }
 
     return (

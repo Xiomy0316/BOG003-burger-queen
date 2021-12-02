@@ -1,10 +1,8 @@
 import OrderProgress from '../order/orderProgress';
-/* import { doc, deleteDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import db from '../firebase/firebaseConfig';
- */
-const ShowOrders = ({ ordersData, setOrdersData }) => {
-  console.log(ordersData, 'orderdata');
 
+const ShowOrders = ({ ordersData }) => {
   let orderPrice;
   const priceProducts = (objectOrder) => {
     /* Si el precio está definido retorna el precio multiplicado por cantidad en cada producto, si no retorna 0 */
@@ -27,22 +25,22 @@ const ShowOrders = ({ ordersData, setOrdersData }) => {
     return totalOrderPrice;
   }
 
-  /* const deleteOrder = async (docId) => {
-    await deleteDoc(doc(db, "pedidos", docId));
-} */
+  const updateStateOrder = async (order) => {
+    const stateOrder = doc(db, "pedidos", order.id);
+    await updateDoc(stateOrder, {
+      state: 'Entregado'
+    });
+  }
 
   return (
     <section className='orders-container'>
       {ordersData.filter(order => order.state !== 'Entregado').map((orderObject) => (
         <div key={orderObject.id} className='card-order'>
-          <OrderProgress orderObject={orderObject.state} />
+          <OrderProgress stateOrderObject={orderObject.state} />
           <section className='info-order'>
             <p>{orderObject.personName}</p>
             <p>{orderObject.tableSelect}</p>
           </section>
-          {/*  <section className='delete-order'>
-            <img src={trash} alt="trash" onClick={() => deleteOrder(orderObject.id)} />
-          </section> */}
           {Object.values(orderObject).map((productInOrder) =>
             <div key={productInOrder.id} className='product-order'>
               <p> {productInOrder.name}</p>
@@ -61,9 +59,12 @@ const ShowOrders = ({ ordersData, setOrdersData }) => {
           <section className='total-price-order'>
             <p> Total $ {priceProducts(orderObject)}</p>
           </section>
-          {/* <section className='btn-send-kitchen'>
-            <button>Enviar a cocina</button>
-          </section> */}
+          {orderObject.state === 'Para entregar' ?
+            <section className='btn-deliver'>
+              <button onClick={() => updateStateOrder(orderObject)}>Entregar</button>
+            </section>
+            : ''
+          }
         </div>
       ))
       }

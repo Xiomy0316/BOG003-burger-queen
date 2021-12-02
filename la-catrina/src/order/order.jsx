@@ -12,7 +12,6 @@ const Order = () => {
     const getData = async () => {
       onSnapshot(query(collection(db, 'pedidos')), (querySnapshot) => {
         let orders = [];
-        /* const querySnapshot = await getDocs(collection(db, 'pedidos')); */
         querySnapshot.forEach((doc) => {
           let data = doc.data();
           data.id = doc.id;
@@ -31,7 +30,6 @@ const Order = () => {
           <a href='/'><img className='logo-white' src={logoWhite} alt='logo' /></a>
         </header>
         <ShowOrders ordersData={ordersData} setOrdersData={setOrdersData} />
-        {/* Estilos iguales al boton save order (dejar estos, cambiar nombres o copiar nuevos estilos en order.scss?) */}
         <section className='go-menu'>
           <a className='btn-save-order' href='/menu'>
             Ir a Menú
