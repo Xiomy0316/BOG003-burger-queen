@@ -1,3 +1,22 @@
+$font: 'Comfortaa', cursive;
+$blueColor: #04BFAD;
+$blackColor: #151616;
+
+.orders-chef {
+    min-height: 100vh;
+    background-color: $blackColor;
+    color: white;
+}
+.orders-chef-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
 .timer {
-    border: 1px solid red;
+    padding: 5px;
+    h3 {
+        color: $blueColor;
+        font-family: $font;
+    }
 }

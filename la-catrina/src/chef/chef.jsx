@@ -1,7 +1,8 @@
 import { Fragment, useState, useEffect } from 'react';
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import db from '../firebase/firebaseConfig';
-import Order from './order'
+import OrderChef from './orderChef';
+import logoWhite from '../img/burrito-blanco.png';
 import './chef.scss';
 //import Timer from './timer';
 
@@ -30,10 +31,14 @@ const Chef = () => {
   return (
     <Fragment>
       <section className='orders-chef'>
-        <a href='/'>Ir a home</a>
-        {ordersData.filter(order => (order.state !== 'Entregado' && order.state !== 'Para entregar')).map((orderObject) => (
-        <Order orderObject = {orderObject}/>))
-        }
+        <header className='order-header'>
+          <a href='/'><img className='logo-white' src={logoWhite} alt='logo' /></a>
+        </header>
+        <section className='orders-chef-container'>
+          {ordersData.filter(order => (order.state !== 'Entregado' && order.state !== 'Para entregar')).map((orderObject) => (
+            <OrderChef orderObject={orderObject} />))
+          }
+        </section>
       </section>
     </Fragment>
   )
