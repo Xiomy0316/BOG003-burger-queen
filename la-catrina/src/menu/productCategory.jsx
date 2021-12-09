@@ -81,12 +81,12 @@ const ProductCategory = ({ data, setMenu }) => {
                         setAddOrder={setAddToOrder}
                     />
                 </div>
-            </section>
             <AddToCart
                 addOrder={addToOrder}
                 personName={person}
                 tableSelect={table}
             />
+            </section>
         </Fragment>)
 }
 
