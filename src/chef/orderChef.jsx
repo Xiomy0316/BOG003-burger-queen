@@ -23,11 +23,6 @@ const OrderChef = (orderObject) => {
 
     const [time, setTime] = useState(0);
     const [timeOn, setTimeOn] = useState(false);
-    /*  const time = () => {
-         setDiff(new Date(+new Date() - initial))
-     }; */
-
-    /*   const startTime = () => { setInitial(+new Date()) } */
 
     useEffect(() => {
         let interval = null;
@@ -41,12 +36,6 @@ const OrderChef = (orderObject) => {
         return () => clearInterval(interval)
     }, [timeOn]);
 
-    /* useEffect(() => {
-        if (diff) {
-            requestAnimationFrame(time);
-        }
-    }, [diff]);
- */
     return (
         <Fragment>
             {Object.values(orderObject).map((product) =>
@@ -55,14 +44,6 @@ const OrderChef = (orderObject) => {
                         <span>{('0' + Math.floor((time / 60000) % 60)).slice(-2)}: </span>
                         <span>{('0' + Math.floor((time / 1000) % 60)).slice(-2)} </span>
                     </div>
-                    <div>
-                    <button onClick={() => 
-                                    setTimeOn(true)
-                            }>
-                                Cronometro
-                            </button>
-                    </div>
-                    {/* <div><Timer stateOrder={orderObject.state} /> </div> */}
                     <section className='info-order'>
                         <p>{product.personName}</p>
                         <p>{product.tableSelect}</p>
@@ -106,18 +87,5 @@ const OrderChef = (orderObject) => {
         </Fragment>
     )
 }
-
-/* const timeFormat = (date) => {
-    if (!date) return '00:00';
-
-    let mm = date.getUTCMinutes();
-    let ss = date.getSeconds();
-
-    mm = mm < 10 ? '0' + mm : mm;
-    ss = ss < 10 ? '0' + ss : ss;
-
-    return `${mm}:${ss}`;
-
-} */
 
 export default OrderChef;

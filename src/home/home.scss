@@ -1,3 +1,6 @@
+$breakpoint-tablet: 1093px;
+$breakpoint-phone: 568px;
+
 .header-home{
     min-height: 100vh;
     display: flex;
@@ -35,4 +38,38 @@
 }
 .btn-nav img {
     width: 110px;
+}
+
+@media (min-width: $breakpoint-tablet) {
+    .logo-home{
+        width: 130px;
+        height: 130px;
+        transform: rotate(30deg);
+    }
+    .sect-logo {
+        font-size: 70px;
+        padding-right: 80px;
+    }
+   .sect-nav{
+        justify-content: space-around;
+   }
+   .btn-nav img {
+        width: 90px;
+    }
+}
+
+@media (min-width: $breakpoint-phone) and (max-width: 1092px) {
+    .logo-home{
+        width: 80px;
+        height: 80px;
+        transform: rotate(30deg);
+    }
+    .sect-logo {
+        font-size: 50px;
+        padding-right: 50px;
+    }
+    .btn-nav img {
+        width: 60px;
+    }
+ 
 }

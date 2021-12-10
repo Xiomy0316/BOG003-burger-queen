@@ -286,3 +286,89 @@ form {
     text-decoration: none;
     border: none;
 }
+
+$breakpoint-tablet: 1093px;
+$breakpoint-phone: 568px;
+
+@media (min-width: $breakpoint-tablet) {
+    .card-product {
+        width: 20%;
+    }
+    .logo-plus{
+        width: 60px;
+    }
+    .go-order{
+        width: 60px;
+    }
+    h3 {
+        font-size: 16px;
+    }
+    p {
+        font-size: 14px;
+    }
+ }
+
+ @media (min-width: $breakpoint-phone) and (max-width: 1092px) {
+    .logo-plus{
+        width: 30px;
+    }
+    .go-order{
+        width: 30px;
+    }
+    .logo-white {
+        width: 40px;
+    }
+    h3 {
+        font-size: 15px;
+    }
+    p {
+        font-size: 12px;
+    }
+    .input-name {
+        height: 25px;
+        font-size: 12px;
+        width: 350px;
+    }
+    .num-table {
+        height: 30px;
+        font-size: 12px;
+    }
+    .sect-buttons {
+        width: 100%;
+    }
+    @mixin btn-nav-menu {
+        width: 20%;
+        height: 25px;
+        font-size: 12px;
+    }
+    .btn-breakfast {
+        @include btn-nav-menu;
+    }
+    .btn-principal {
+        @include btn-nav-menu;
+    }
+    .products {
+        img {
+            width: 50px;
+        }
+    }
+    .plus-open-modal img {
+        width: 16px;
+    }
+    .sect-btn-amount img{
+        width: 16px;
+    }
+    .products-container {
+        flex-direction: column;
+    }
+    .products {
+        width: 80%;
+    }
+    .card-product {
+        line-height: 20px;
+    }
+    .order-summary {
+        width: 80%;
+    }
+
+}

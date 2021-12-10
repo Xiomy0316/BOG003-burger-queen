@@ -23,7 +23,6 @@ $blackColor: #151616;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
 }
 .container-progress-bar {
     display: flex;
@@ -57,8 +56,9 @@ $blackColor: #151616;
 .container-product-order {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-left: 20px;
+    height: 50%;
 }
 .product-order {
     display: flex;
@@ -120,3 +120,11 @@ $blackColor: #151616;
         font-family: $font;
     }
 }
+
+$breakpoint-tablet: 1093px;
+
+@media (min-width: $breakpoint-tablet) {
+    .card-order {
+        width: 30%;
+    }
+ }
