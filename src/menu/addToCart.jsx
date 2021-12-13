@@ -1,10 +1,11 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import db from '../firebase/firebaseConfig';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 
-const AddToCart = ({ addOrder, personName, tableSelect }) => {
+const AddToCart = ({ addOrder, personName, tableSelect, openModal }) => {
+    const [positionBtn, setPositionBtn] = useState('fixed');
 
     const uploadOrder = async () => {
        await addDoc(collection(db, "pedidos"),
@@ -47,9 +48,15 @@ const AddToCart = ({ addOrder, personName, tableSelect }) => {
         }
     }
 
+    // if (openModal === true){
+    //     console.log('Soy true');
+    //     /* setPositionBtn('absolute') */
+    // }
+
     return (
         <Fragment>
-            <section className='save-order'>
+            
+            <section className='save-order' /*  style={{ position: positionBtn }} */>
                 <button
                     className='btn-save-order'
                     onClick={() => {

@@ -1,10 +1,10 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import plusSign from '../img/signo-mas.png';
 import minusSign from '../img/signo-menos.png';
 import ModalMenu from "./modalMenu";
 
-const MenuBurritos = ({ productByCategory, addOrder, setAddOrder }) => {
-    const [openModal, setOpenModal] = useState(false);
+const MenuBurritos = ({ productByCategory, addOrder, setAddOrder, openModal, setOpenModal }) => {
+
 
     const removeToCart = (idDataProduct) => {
         /* Cuando el valor de amount llegue a 0 se elimina el elemento del array */

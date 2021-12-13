@@ -10,6 +10,7 @@ const ProductCategory = ({ data, setMenu }) => {
     const [addToOrder, setAddToOrder] = useState([]);
     const [person, setPerson] = useState('');
     const [table, setTable] = useState('Mesa');
+    const [openModal, setOpenModal] = useState(false);
     //console.log(addToOrder);
     const onCustomerName = (event) => {
         setPerson(event.target.value);
@@ -43,7 +44,12 @@ const ProductCategory = ({ data, setMenu }) => {
                                         setAddOrder={setAddToOrder}
                                         personName={person}
                                     /> :
-                                    <MenuBurritos productByCategory={productByCategory} addOrder={addToOrder} setAddOrder={setAddToOrder} />
+                                    <MenuBurritos
+                                        productByCategory={productByCategory}
+                                        addOrder={addToOrder}
+                                        setAddOrder={setAddToOrder}
+                                        openModal={openModal}
+                                        setOpenModal={setOpenModal} />
                                 }
                             </div>
                         ))}
@@ -81,11 +87,12 @@ const ProductCategory = ({ data, setMenu }) => {
                         setAddOrder={setAddToOrder}
                     />
                 </div>
-            <AddToCart
-                addOrder={addToOrder}
-                personName={person}
-                tableSelect={table}
-            />
+                <AddToCart
+                    addOrder={addToOrder}
+                    personName={person}
+                    tableSelect={table}
+                    openModal={openModal}
+                />
             </section>
         </Fragment>)
 }

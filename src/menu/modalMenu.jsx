@@ -31,9 +31,10 @@ const ModalMenu = ({ setOpenModal, burritoProduct, addOrder, setAddOrder }) => {
                     <section className='close-modal'>
                         <img src={x} alt='img-x' onClick={() => setOpenModal(false)} />
                     </section>
-                    <p>{burritoProduct.name}</p>
+                    <h4>{burritoProduct.name}</h4>
                     <form>
-                        <ul className='sect-protein-additionals'> Proteína:
+                        <ul className='sect-protein-additionals'>
+                            <h4> Proteína: </h4>
                             <li><input
                                 id="protein1"
                                 value="Res"
@@ -62,33 +63,36 @@ const ModalMenu = ({ setOpenModal, burritoProduct, addOrder, setAddOrder }) => {
                                     {burritoProduct.protein[2]}
                                 </label></li>
                         </ul>
-                        Adicionales:
+
                         <ul className='sect-additionals'>
+                            <h4> Adicionales: </h4>
                             <li><input
                                 type="checkbox"
                                 id="aditional1"
                                 value="Queso"
                                 onChange={handleValueAditionals} />
-
-                                <p>
-                                    {burritoProduct.additional[0].name}
-                                </p>
-                                <p>
-                                    $ {burritoProduct.additional[0].price}
-                                </p>
+                                <section className='additional-name-price'>
+                                    <p>
+                                        {burritoProduct.additional[0].name}
+                                    </p>
+                                    <p>
+                                        $ {burritoProduct.additional[0].price}
+                                    </p>
+                                </section>
                             </li>
                             <li><input
                                 type="checkbox"
                                 id="aditional2"
                                 value="Jalapeños"
                                 onChange={handleValueAditionals} />
-
-                                <p>
-                                    {burritoProduct.additional[1].name}
-                                </p>
-                                <p>
-                                    $ {burritoProduct.additional[1].price}
-                                </p>
+                                <section className='additional-name-price'>
+                                    <p>
+                                        {burritoProduct.additional[1].name}
+                                    </p>
+                                    <p>
+                                        $ {burritoProduct.additional[1].price}
+                                    </p>
+                                </section>
                             </li>
 
                         </ul>

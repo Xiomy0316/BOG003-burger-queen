@@ -103,10 +103,6 @@ $blackColor: #151616;
 .products {
     margin-top:20px;
     width: 50%;
-    /* display: flex;
-    flex-direction: column;
-    height: 80vh;
-    justify-content: space-evenly; */
     h3 {
         margin-left: 15px;
    }
@@ -185,7 +181,7 @@ $blackColor: #151616;
 }
 form {
     text-align: start;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 .sect-protein-additionals{
     display: flex;
@@ -201,11 +197,15 @@ form {
 .sect-additionals{
     display: flex;
     flex-direction: column;
-
     li {
         display: flex;
         align-items: center;
     }
+}
+.additional-name-price {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
 }
 .btn-add-burrito {
     margin-top : 15px;
@@ -287,12 +287,12 @@ form {
     border: none;
 }
 
-$breakpoint-tablet: 1093px;
+$breakpoint-desktop: 1300px;
 $breakpoint-phone: 568px;
 
-@media (min-width: $breakpoint-tablet) {
+@media (min-width: $breakpoint-desktop) and (max-width: 1920px) {
     .card-product {
-        width: 20%;
+        width: 25%;
     }
     .logo-plus{
         width: 60px;
@@ -301,10 +301,13 @@ $breakpoint-phone: 568px;
         width: 60px;
     }
     h3 {
-        font-size: 16px;
+        font-size: 18px;
     }
     p {
-        font-size: 14px;
+        font-size: 16px;
+    }
+    .container-modal {
+        padding-left: 20px;
     }
  }
 
@@ -347,7 +350,11 @@ $breakpoint-phone: 568px;
     .btn-principal {
         @include btn-nav-menu;
     }
+    .products-container {
+        margin-left: 10px;
+    }
     .products {
+        width: 80%;
         img {
             width: 50px;
         }
@@ -361,14 +368,22 @@ $breakpoint-phone: 568px;
     .products-container {
         flex-direction: column;
     }
-    .products {
-        width: 80%;
-    }
     .card-product {
         line-height: 20px;
     }
+    .sect-protein-additionals {
+        ul {
+            font-size: 25px;
+        }
+    }
+    .sect-additionals {
+        p {
+            font-size: 16px;
+        }
+    }
     .order-summary {
         width: 80%;
+        margin-left: 18px;
     }
 
 }
