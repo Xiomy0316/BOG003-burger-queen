@@ -19,6 +19,7 @@ $blackColor: #151616;
     margin: 5px;
     font-family: $font;
     width: 45%;
+    min-width: 280px;
     border: 2px solid $blueColor;
     border-radius: 10px;
     display: flex;
@@ -34,6 +35,12 @@ $blackColor: #151616;
         width: 64px;
         margin-right: 10px;
     }
+}
+.time-kitchen {
+    color: $blueColor;
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
 }
 .line-orders-section {
     display: flex;

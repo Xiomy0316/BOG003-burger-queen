@@ -1,4 +1,4 @@
-$breakpoint-tablet: 1093px;
+$breakpoint-desktop: 1093px;
 $breakpoint-phone: 568px;
 
 .header-home{
@@ -18,7 +18,7 @@ $breakpoint-phone: 568px;
     display: flex;
     flex-direction: row-reverse;
     width: 40%;
-    max-width: 400px;
+    max-width: 250px;
     color: #151616;
     font-family: 'Lobster Two', cursive;
     line-height: 130%;
@@ -40,7 +40,7 @@ $breakpoint-phone: 568px;
     width: 110px;
 }
 
-@media (min-width: $breakpoint-tablet) {
+@media (min-width: $breakpoint-desktop) {
     .logo-home{
         width: 130px;
         height: 130px;
@@ -48,7 +48,6 @@ $breakpoint-phone: 568px;
     }
     .sect-logo {
         font-size: 70px;
-        padding-right: 80px;
     }
    .sect-nav{
         justify-content: space-around;
@@ -69,7 +68,27 @@ $breakpoint-phone: 568px;
         padding-right: 50px;
     }
     .btn-nav img {
-        width: 60px;
+        width: 80px;
     }
- 
+}
+
+@media (min-width: 320px) and (max-width: 400px) {
+    .logo-home{
+        width: 68px;
+        height: 68px;
+    }
+    .sect-logo {
+        line-height: 80%;
+        padding-left: 50px;
+        h1 {
+            font-size: 72px;
+        }
+    }
+    .btn-nav {
+        font-size: 15px;
+        text-align: center;
+    }
+    .btn-nav img {
+        width: 68px;
+    }
 }

@@ -162,6 +162,7 @@ $blackColor: #151616;
 }
 .container-modal{
     width: 25%;
+    min-width: 220px;
     height: 325px;
     background-color: $blackColor;
     position: absolute;
@@ -313,13 +314,13 @@ $breakpoint-phone: 568px;
 
  @media (min-width: $breakpoint-phone) and (max-width: 1092px) {
     .logo-plus{
-        width: 30px;
+        width: 35px;
     }
     .go-order{
-        width: 30px;
+        width: 35px;
     }
     .logo-white {
-        width: 40px;
+        width: 45px;
     }
     h3 {
         font-size: 15px;
@@ -386,4 +387,63 @@ $breakpoint-phone: 568px;
         margin-left: 18px;
     }
 
+}
+
+@media (min-width: 320px) and (max-width: 400px) {
+    .logo-plus{
+        width: 35px;
+    }
+    .go-order{
+        width: 35px;
+    }
+    .logo-white {
+        width: 45px;
+    }
+    .input-name {
+        height: 20px;
+        font-size: 12px;
+        width: 200px;
+    }
+    .num-table {
+        height: 25px;
+        font-size: 12px;
+    }
+    .sect-buttons {
+        width: 100%;
+    }
+    .products-container {
+        margin-left: 10px;
+    }
+    .products {
+        width: 80%;
+        img {
+            width: 50px;
+        }
+    }
+    .plus-open-modal img {
+        width: 16px;
+    }
+    .sect-btn-amount img{
+        width: 16px;
+    }
+    .products-container {
+        flex-direction: column;
+    }
+    .card-product {
+        line-height: 20px;
+    }
+    .sect-additionals {
+        p {
+            font-size: 14px;
+        }
+    }
+    .order-summary {
+        width: 80%;
+        margin-left: 18px;
+        h3 {
+            font-size: 15px;
+            
+        }
+    }
+    
 }

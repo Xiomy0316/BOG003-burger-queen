@@ -1,5 +1,5 @@
 import { Fragment, useState, useEffect } from 'react';
-import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
+import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
 import db from '../firebase/firebaseConfig';
 import OrderChef from './orderChef';
 import logoWhite from '../img/burrito-blanco.png';

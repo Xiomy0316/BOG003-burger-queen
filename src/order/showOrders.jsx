@@ -1,5 +1,5 @@
 import OrderProgress from '../order/orderProgress';
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc } from 'firebase/firestore';
 import db from '../firebase/firebaseConfig';
 
 const ShowOrders = ({ ordersData }) => {
@@ -26,7 +26,7 @@ const ShowOrders = ({ ordersData }) => {
   }
 
   const updateStateOrder = async (order) => {
-    const stateOrder = doc(db, "pedidos", order.id);
+    const stateOrder = doc(db, 'pedidos', order.id);
     await updateDoc(stateOrder, {
       state: 'Entregado'
     });
@@ -36,7 +36,7 @@ const ShowOrders = ({ ordersData }) => {
     <section className='orders-container'>
       {ordersData.filter(order => order.state !== 'Entregado').map((orderObject) => (
         <div key={orderObject.id} className='card-order'>
-          <OrderProgress stateOrderObject={orderObject.state} />
+          <OrderProgress orderObject={orderObject} />
           <section className='info-order'>
             <p>{orderObject.personName}</p>
             <p>{orderObject.tableSelect}</p>
