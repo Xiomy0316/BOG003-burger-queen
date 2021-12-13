@@ -4,7 +4,6 @@ import db from '../firebase/firebaseConfig';
 import OrderChef from './orderChef';
 import logoWhite from '../img/burrito-blanco.png';
 import './chef.scss';
-//import Timer from './timer';
 
 const Chef = () => {
 
@@ -25,8 +24,6 @@ const Chef = () => {
     }
     getData()
   }, []);
-
-  //console.log(stateOrder.stateOrder, 'estado orden');
 
   return (
     <Fragment>

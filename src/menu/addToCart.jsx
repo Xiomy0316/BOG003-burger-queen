@@ -1,12 +1,10 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import db from '../firebase/firebaseConfig';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 
-const AddToCart = ({ addOrder, personName, tableSelect, openModal }) => {
-    const [positionBtn, setPositionBtn] = useState('fixed');
-
+const AddToCart = ({ addOrder, personName, tableSelect }) => {
     const uploadOrder = async () => {
        await addDoc(collection(db, "pedidos"),
             { ...addOrder, personName, tableSelect, state: 'Enviar a cocina', date: new Date() }
@@ -48,15 +46,10 @@ const AddToCart = ({ addOrder, personName, tableSelect, openModal }) => {
         }
     }
 
-    // if (openModal === true){
-    //     console.log('Soy true');
-    //     /* setPositionBtn('absolute') */
-    // }
-
     return (
         <Fragment>
             
-            <section className='save-order' /*  style={{ position: positionBtn }} */>
+            <section className='save-order'>
                 <button
                     className='btn-save-order'
                     onClick={() => {
