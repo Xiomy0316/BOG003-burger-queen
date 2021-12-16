@@ -1,5 +1,5 @@
 # Burger Queen
-![Logo](src\img\Logo_la_Catrina.jpg)
+![Logo](./src/img/Logo_la_Catrina.jpg)
 
 ### *Realizado por Diana Buitrago, Xiomara Cárdenas y Yurany Toloza*
 
