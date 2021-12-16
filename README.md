@@ -41,12 +41,12 @@ La app está desarrollada con React, logrando que la interfaz se actualice con c
 
 ## 4. Resultado Final
 
-![Home](src\img\Imagen1.png)
+![Home](./src/img/Imagen1.png)
 
-![Menu](src\img\Imagen2.png)
+![Menu](./src/img/Imagen2.png)
 
-![Modal](src\img\Imagen3.png)
+![Modal](./src/img/Imagen3.png)
 
-![Pedidos](src\img\Imagen4.png)
+![Pedidos](./src/img/Imagen4.png)
 
-![Chef](src\img\Imagen5.png)
+![Chef](./src/img/Imagen5.png)
